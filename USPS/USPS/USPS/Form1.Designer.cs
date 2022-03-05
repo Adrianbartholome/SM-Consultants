@@ -206,6 +206,7 @@
             // 
             this.pass.Location = new System.Drawing.Point(54, 281);
             this.pass.Margin = new System.Windows.Forms.Padding(2);
+            this.pass.MaxLength = 33;
             this.pass.Name = "pass";
             this.pass.Size = new System.Drawing.Size(150, 20);
             this.pass.TabIndex = 2;
@@ -217,6 +218,7 @@
             // 
             this.user.Location = new System.Drawing.Point(54, 233);
             this.user.Margin = new System.Windows.Forms.Padding(2);
+            this.user.MaxLength = 33;
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(150, 20);
             this.user.TabIndex = 1;
@@ -340,6 +342,7 @@
             this.drugAllergyTextBox1.ReadOnly = true;
             this.drugAllergyTextBox1.Size = new System.Drawing.Size(177, 20);
             this.drugAllergyTextBox1.TabIndex = 19;
+            this.drugAllergyTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.drugAllergyTextBox1_Validating);
             // 
             // paymentMethodTextBox
             // 
@@ -350,6 +353,7 @@
             this.paymentMethodTextBox.ReadOnly = true;
             this.paymentMethodTextBox.Size = new System.Drawing.Size(146, 20);
             this.paymentMethodTextBox.TabIndex = 18;
+            this.paymentMethodTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.paymentMethodTextBox_Validating);
             // 
             // insuranceTextBox
             // 
@@ -360,6 +364,7 @@
             this.insuranceTextBox.ReadOnly = true;
             this.insuranceTextBox.Size = new System.Drawing.Size(145, 20);
             this.insuranceTextBox.TabIndex = 17;
+            this.insuranceTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.insuranceTextBox_Validating);
             // 
             // zipCodeTextBox
             // 
@@ -371,6 +376,7 @@
             this.zipCodeTextBox.Size = new System.Drawing.Size(60, 20);
             this.zipCodeTextBox.TabIndex = 16;
             this.zipCodeTextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.zipCodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.zipCodeTextBox_Validating);
             // 
             // stateTextBox
             // 
@@ -383,6 +389,7 @@
             this.stateTextBox.ReadOnly = true;
             this.stateTextBox.Size = new System.Drawing.Size(35, 20);
             this.stateTextBox.TabIndex = 15;
+            this.stateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.stateTextBox_Validating);
             // 
             // cityTextBox
             // 
@@ -394,6 +401,7 @@
             this.cityTextBox.Size = new System.Drawing.Size(121, 20);
             this.cityTextBox.TabIndex = 14;
             this.cityTextBox.TextChanged += new System.EventHandler(this.cityTextBox_TextChanged);
+            this.cityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cityTextBox_Validating);
             // 
             // streetAddressTextBox
             // 
@@ -405,6 +413,7 @@
             this.streetAddressTextBox.Size = new System.Drawing.Size(177, 20);
             this.streetAddressTextBox.TabIndex = 13;
             this.streetAddressTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.streetAddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.streetAddressTextBox_Validating);
             // 
             // dateOfBirthTextBox
             // 
@@ -415,6 +424,7 @@
             this.dateOfBirthTextBox.ReadOnly = true;
             this.dateOfBirthTextBox.Size = new System.Drawing.Size(96, 20);
             this.dateOfBirthTextBox.TabIndex = 12;
+            this.dateOfBirthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.dateOfBirthTextBox_Validating);
             // 
             // lastNameTextBox
             // 
@@ -426,6 +436,7 @@
             this.lastNameTextBox.Size = new System.Drawing.Size(142, 20);
             this.lastNameTextBox.TabIndex = 11;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.lastNameTextBox_TextChanged);
+            this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
             // firstNameTextBox
             // 
@@ -437,6 +448,7 @@
             this.firstNameTextBox.Size = new System.Drawing.Size(101, 20);
             this.firstNameTextBox.TabIndex = 10;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
+            this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
             // drugAllergies
             // 

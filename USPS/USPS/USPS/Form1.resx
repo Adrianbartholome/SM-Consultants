@@ -121,7 +121,7 @@
   <data name="uspsLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMwAAACMCAYAAAAwekaeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAP5dJREFUeF7tnQe4FTXagMey66r7r7urrnXtBVQUpChFOtIERDoCKtjL2nWtq2LB
+        DAAACwwBP0AiyAAAP5dJREFUeF7tnQe4FTXagMey66r7r7urrnXtBVQUpChFOtIERDoCKtjL2nWtq2LB
         ih2xAIrYlSKgKAiCFEEpAoJdUUGQroA0839vzsnxO7k55XLbuXDzPC/nMsnMZDJJvpIykTFma+N/whBh
         QBlbLQOF/sJeQqgOFBnBg6WYcsJaoSxs/eFrYXchVA+KjODBUkwzoSxsG+F5IVQHipTgwVLMFYIN3y39
         1dz82sfmwn4TTY++483ZT00wlw2cbG569SNz2xvTza2vl1FauOW16eaGV6aZn1evi79dG64RQnWgSAke
@@ -398,7 +398,7 @@
   <data name="uspsLogo.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMwAAACMCAYAAAAwekaeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAP5dJREFUeF7tnQe4FTXagMey66r7r7urrnXtBVQUpChFOtIERDoCKtjL2nWtq2LB
+        DAAACwwBP0AiyAAAP5dJREFUeF7tnQe4FTXagMey66r7r7urrnXtBVQUpChFOtIERDoCKtjL2nWtq2LB
         ih2xAIrYlSKgKAiCFEEpAoJdUUGQroA0839vzsnxO7k55XLbuXDzPC/nMsnMZDJJvpIykTFma+N/whBh
         QBlbLQOF/sJeQqgOFBnBg6WYcsJaoSxs/eFrYXchVA+KjODBUkwzoSxsG+F5IVQHipTgwVLMFYIN3y39
         1dz82sfmwn4TTY++483ZT00wlw2cbG569SNz2xvTza2vl1FauOW16eaGV6aZn1evi79dG64RQnWgSAke

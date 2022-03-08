@@ -39,13 +39,15 @@
             this.user = new System.Windows.Forms.TextBox();
             this.userName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.allergyTextBox = new System.Windows.Forms.RichTextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.Label();
+            this.telephoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumber = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
             this.requestRefill = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
-            this.drugAllergyTextBox3 = new System.Windows.Forms.TextBox();
-            this.drugAllergyTextBox2 = new System.Windows.Forms.TextBox();
-            this.drugAllergyTextBox1 = new System.Windows.Forms.TextBox();
             this.paymentMethodTextBox = new System.Windows.Forms.TextBox();
             this.insuranceTextBox = new System.Windows.Forms.TextBox();
             this.zipCodeTextBox = new System.Windows.Forms.TextBox();
@@ -125,11 +127,36 @@
             this.label_streetAddress = new System.Windows.Forms.Label();
             this.label_lastName = new System.Windows.Forms.Label();
             this.label_firstName = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.goBack_btn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.RefillRequestTitle = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uspsLogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -142,8 +169,8 @@
             this.panel1.Controls.Add(this.pass);
             this.panel1.Controls.Add(this.user);
             this.panel1.Controls.Add(this.userName);
-            this.panel1.Location = new System.Drawing.Point(27, 29);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(9, 29);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(269, 353);
             this.panel1.TabIndex = 0;
@@ -151,7 +178,7 @@
             // submit
             // 
             this.submit.Location = new System.Drawing.Point(100, 319);
-            this.submit.Margin = new System.Windows.Forms.Padding(2);
+            this.submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(56, 19);
             this.submit.TabIndex = 7;
@@ -164,7 +191,7 @@
             this.uspsLogo.Image = ((System.Drawing.Image)(resources.GetObject("uspsLogo.Image")));
             this.uspsLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("uspsLogo.InitialImage")));
             this.uspsLogo.Location = new System.Drawing.Point(56, 14);
-            this.uspsLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.uspsLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uspsLogo.Name = "uspsLogo";
             this.uspsLogo.Size = new System.Drawing.Size(155, 125);
             this.uspsLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,8 +232,7 @@
             // pass
             // 
             this.pass.Location = new System.Drawing.Point(54, 281);
-            this.pass.Margin = new System.Windows.Forms.Padding(2);
-            this.pass.MaxLength = 33;
+            this.pass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pass.Name = "pass";
             this.pass.Size = new System.Drawing.Size(150, 20);
             this.pass.TabIndex = 2;
@@ -217,8 +243,7 @@
             // user
             // 
             this.user.Location = new System.Drawing.Point(54, 233);
-            this.user.Margin = new System.Windows.Forms.Padding(2);
-            this.user.MaxLength = 33;
+            this.user.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(150, 20);
             this.user.TabIndex = 1;
@@ -238,13 +263,15 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.allergyTextBox);
+            this.panel2.Controls.Add(this.emailTextBox);
+            this.panel2.Controls.Add(this.email);
+            this.panel2.Controls.Add(this.telephoneNumberTextBox);
+            this.panel2.Controls.Add(this.phoneNumber);
             this.panel2.Controls.Add(this.logOutButton);
             this.panel2.Controls.Add(this.requestRefill);
             this.panel2.Controls.Add(this.Save);
             this.panel2.Controls.Add(this.edit);
-            this.panel2.Controls.Add(this.drugAllergyTextBox3);
-            this.panel2.Controls.Add(this.drugAllergyTextBox2);
-            this.panel2.Controls.Add(this.drugAllergyTextBox1);
             this.panel2.Controls.Add(this.paymentMethodTextBox);
             this.panel2.Controls.Add(this.insuranceTextBox);
             this.panel2.Controls.Add(this.zipCodeTextBox);
@@ -264,15 +291,60 @@
             this.panel2.Controls.Add(this.streetAddress);
             this.panel2.Controls.Add(this.lastName);
             this.panel2.Controls.Add(this.firstName);
-            this.panel2.Location = new System.Drawing.Point(310, 29);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(283, 29);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(418, 353);
+            this.panel2.Size = new System.Drawing.Size(418, 437);
             this.panel2.TabIndex = 2;
+            // 
+            // allergyTextBox
+            // 
+            this.allergyTextBox.Location = new System.Drawing.Point(26, 306);
+            this.allergyTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.allergyTextBox.Name = "allergyTextBox";
+            this.allergyTextBox.Size = new System.Drawing.Size(245, 79);
+            this.allergyTextBox.TabIndex = 30;
+            this.allergyTextBox.Text = "";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(193, 191);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(174, 20);
+            this.emailTextBox.TabIndex = 29;
+            // 
+            // email
+            // 
+            this.email.AutoSize = true;
+            this.email.Location = new System.Drawing.Point(200, 175);
+            this.email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(35, 13);
+            this.email.TabIndex = 28;
+            this.email.Text = "E-mail";
+            // 
+            // telephoneNumberTextBox
+            // 
+            this.telephoneNumberTextBox.Location = new System.Drawing.Point(28, 191);
+            this.telephoneNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.telephoneNumberTextBox.Name = "telephoneNumberTextBox";
+            this.telephoneNumberTextBox.Size = new System.Drawing.Size(121, 20);
+            this.telephoneNumberTextBox.TabIndex = 27;
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.AutoSize = true;
+            this.phoneNumber.Location = new System.Drawing.Point(31, 174);
+            this.phoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.phoneNumber.Name = "phoneNumber";
+            this.phoneNumber.Size = new System.Drawing.Size(98, 13);
+            this.phoneNumber.TabIndex = 26;
+            this.phoneNumber.Text = "Telephone Number";
             // 
             // logOutButton
             // 
-            this.logOutButton.Location = new System.Drawing.Point(293, 319);
+            this.logOutButton.Location = new System.Drawing.Point(292, 390);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(93, 26);
             this.logOutButton.TabIndex = 25;
@@ -282,8 +354,8 @@
             // 
             // requestRefill
             // 
-            this.requestRefill.Location = new System.Drawing.Point(292, 282);
-            this.requestRefill.Margin = new System.Windows.Forms.Padding(2);
+            this.requestRefill.Location = new System.Drawing.Point(290, 353);
+            this.requestRefill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.requestRefill.Name = "requestRefill";
             this.requestRefill.Size = new System.Drawing.Size(94, 32);
             this.requestRefill.TabIndex = 24;
@@ -293,8 +365,8 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(96, 327);
-            this.Save.Margin = new System.Windows.Forms.Padding(2);
+            this.Save.Location = new System.Drawing.Point(94, 397);
+            this.Save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(56, 19);
             this.Save.TabIndex = 23;
@@ -304,8 +376,8 @@
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(32, 327);
-            this.edit.Margin = new System.Windows.Forms.Padding(2);
+            this.edit.Location = new System.Drawing.Point(31, 397);
+            this.edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(56, 19);
             this.edit.TabIndex = 22;
@@ -313,147 +385,107 @@
             this.edit.UseVisualStyleBackColor = true;
             this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
-            // drugAllergyTextBox3
-            // 
-            this.drugAllergyTextBox3.Location = new System.Drawing.Point(32, 303);
-            this.drugAllergyTextBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.drugAllergyTextBox3.MaxLength = 33;
-            this.drugAllergyTextBox3.Name = "drugAllergyTextBox3";
-            this.drugAllergyTextBox3.ReadOnly = true;
-            this.drugAllergyTextBox3.Size = new System.Drawing.Size(177, 20);
-            this.drugAllergyTextBox3.TabIndex = 21;
-            // 
-            // drugAllergyTextBox2
-            // 
-            this.drugAllergyTextBox2.Location = new System.Drawing.Point(32, 280);
-            this.drugAllergyTextBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.drugAllergyTextBox2.MaxLength = 33;
-            this.drugAllergyTextBox2.Name = "drugAllergyTextBox2";
-            this.drugAllergyTextBox2.ReadOnly = true;
-            this.drugAllergyTextBox2.Size = new System.Drawing.Size(177, 20);
-            this.drugAllergyTextBox2.TabIndex = 20;
-            // 
-            // drugAllergyTextBox1
-            // 
-            this.drugAllergyTextBox1.Location = new System.Drawing.Point(32, 258);
-            this.drugAllergyTextBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.drugAllergyTextBox1.MaxLength = 33;
-            this.drugAllergyTextBox1.Name = "drugAllergyTextBox1";
-            this.drugAllergyTextBox1.ReadOnly = true;
-            this.drugAllergyTextBox1.Size = new System.Drawing.Size(177, 20);
-            this.drugAllergyTextBox1.TabIndex = 19;
-            this.drugAllergyTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.drugAllergyTextBox1_Validating);
-            // 
             // paymentMethodTextBox
             // 
-            this.paymentMethodTextBox.Location = new System.Drawing.Point(184, 193);
-            this.paymentMethodTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.paymentMethodTextBox.Location = new System.Drawing.Point(182, 248);
+            this.paymentMethodTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.paymentMethodTextBox.MaxLength = 19;
             this.paymentMethodTextBox.Name = "paymentMethodTextBox";
             this.paymentMethodTextBox.ReadOnly = true;
             this.paymentMethodTextBox.Size = new System.Drawing.Size(146, 20);
             this.paymentMethodTextBox.TabIndex = 18;
-            this.paymentMethodTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.paymentMethodTextBox_Validating);
             // 
             // insuranceTextBox
             // 
-            this.insuranceTextBox.Location = new System.Drawing.Point(28, 193);
-            this.insuranceTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.insuranceTextBox.Location = new System.Drawing.Point(26, 248);
+            this.insuranceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.insuranceTextBox.MaxLength = 66;
             this.insuranceTextBox.Name = "insuranceTextBox";
             this.insuranceTextBox.ReadOnly = true;
             this.insuranceTextBox.Size = new System.Drawing.Size(145, 20);
             this.insuranceTextBox.TabIndex = 17;
-            this.insuranceTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.insuranceTextBox_Validating);
             // 
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.Location = new System.Drawing.Point(211, 133);
-            this.zipCodeTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.zipCodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.zipCodeTextBox.MaxLength = 5;
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.ReadOnly = true;
             this.zipCodeTextBox.Size = new System.Drawing.Size(60, 20);
             this.zipCodeTextBox.TabIndex = 16;
             this.zipCodeTextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            this.zipCodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.zipCodeTextBox_Validating);
             // 
             // stateTextBox
             // 
             this.stateTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.stateTextBox.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.stateTextBox.Location = new System.Drawing.Point(165, 133);
-            this.stateTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.stateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.stateTextBox.MaxLength = 2;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.ReadOnly = true;
             this.stateTextBox.Size = new System.Drawing.Size(35, 20);
             this.stateTextBox.TabIndex = 15;
-            this.stateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.stateTextBox_Validating);
             // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(28, 133);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cityTextBox.MaxLength = 33;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.ReadOnly = true;
             this.cityTextBox.Size = new System.Drawing.Size(121, 20);
             this.cityTextBox.TabIndex = 14;
             this.cityTextBox.TextChanged += new System.EventHandler(this.cityTextBox_TextChanged);
-            this.cityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cityTextBox_Validating);
             // 
             // streetAddressTextBox
             // 
             this.streetAddressTextBox.Location = new System.Drawing.Point(28, 93);
-            this.streetAddressTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.streetAddressTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.streetAddressTextBox.MaxLength = 33;
             this.streetAddressTextBox.Name = "streetAddressTextBox";
             this.streetAddressTextBox.ReadOnly = true;
             this.streetAddressTextBox.Size = new System.Drawing.Size(177, 20);
             this.streetAddressTextBox.TabIndex = 13;
             this.streetAddressTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            this.streetAddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.streetAddressTextBox_Validating);
             // 
             // dateOfBirthTextBox
             // 
             this.dateOfBirthTextBox.Location = new System.Drawing.Point(292, 47);
-            this.dateOfBirthTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.dateOfBirthTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateOfBirthTextBox.MaxLength = 10;
             this.dateOfBirthTextBox.Name = "dateOfBirthTextBox";
             this.dateOfBirthTextBox.ReadOnly = true;
             this.dateOfBirthTextBox.Size = new System.Drawing.Size(96, 20);
             this.dateOfBirthTextBox.TabIndex = 12;
-            this.dateOfBirthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.dateOfBirthTextBox_Validating);
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(140, 47);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lastNameTextBox.MaxLength = 33;
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.ReadOnly = true;
             this.lastNameTextBox.Size = new System.Drawing.Size(142, 20);
             this.lastNameTextBox.TabIndex = 11;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.lastNameTextBox_TextChanged);
-            this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Location = new System.Drawing.Point(28, 47);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.firstNameTextBox.MaxLength = 33;
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.ReadOnly = true;
             this.firstNameTextBox.Size = new System.Drawing.Size(101, 20);
             this.firstNameTextBox.TabIndex = 10;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
-            this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
             // drugAllergies
             // 
             this.drugAllergies.AutoSize = true;
-            this.drugAllergies.Location = new System.Drawing.Point(31, 233);
+            this.drugAllergies.Location = new System.Drawing.Point(29, 288);
             this.drugAllergies.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.drugAllergies.Name = "drugAllergies";
             this.drugAllergies.Size = new System.Drawing.Size(72, 13);
@@ -474,7 +506,7 @@
             // paymentMethod
             // 
             this.paymentMethod.AutoSize = true;
-            this.paymentMethod.Location = new System.Drawing.Point(184, 177);
+            this.paymentMethod.Location = new System.Drawing.Point(182, 232);
             this.paymentMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.paymentMethod.Name = "paymentMethod";
             this.paymentMethod.Size = new System.Drawing.Size(87, 13);
@@ -484,7 +516,7 @@
             // insurance
             // 
             this.insurance.AutoSize = true;
-            this.insurance.Location = new System.Drawing.Point(28, 176);
+            this.insurance.Location = new System.Drawing.Point(26, 231);
             this.insurance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.insurance.Name = "insurance";
             this.insurance.Size = new System.Drawing.Size(54, 13);
@@ -524,7 +556,7 @@
             // streetAddress
             // 
             this.streetAddress.AutoSize = true;
-            this.streetAddress.Location = new System.Drawing.Point(27, 78);
+            this.streetAddress.Location = new System.Drawing.Point(31, 77);
             this.streetAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.streetAddress.Name = "streetAddress";
             this.streetAddress.Size = new System.Drawing.Size(76, 13);
@@ -546,7 +578,7 @@
             // firstName
             // 
             this.firstName.AutoSize = true;
-            this.firstName.Location = new System.Drawing.Point(27, 31);
+            this.firstName.Location = new System.Drawing.Point(31, 32);
             this.firstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(57, 13);
@@ -615,10 +647,10 @@
             this.panel3.Controls.Add(this.label_streetAddress);
             this.panel3.Controls.Add(this.label_lastName);
             this.panel3.Controls.Add(this.label_firstName);
-            this.panel3.Location = new System.Drawing.Point(739, 29);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(1010, 29);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(424, 594);
+            this.panel3.Size = new System.Drawing.Size(424, 593);
             this.panel3.TabIndex = 4;
             // 
             // button1
@@ -634,7 +666,7 @@
             // Edit_onPharmForm
             // 
             this.Edit_onPharmForm.Location = new System.Drawing.Point(28, 349);
-            this.Edit_onPharmForm.Margin = new System.Windows.Forms.Padding(2);
+            this.Edit_onPharmForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Edit_onPharmForm.Name = "Edit_onPharmForm";
             this.Edit_onPharmForm.Size = new System.Drawing.Size(51, 24);
             this.Edit_onPharmForm.TabIndex = 89;
@@ -645,7 +677,7 @@
             // saveChanges
             // 
             this.saveChanges.Location = new System.Drawing.Point(84, 349);
-            this.saveChanges.Margin = new System.Windows.Forms.Padding(2);
+            this.saveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveChanges.Name = "saveChanges";
             this.saveChanges.Size = new System.Drawing.Size(90, 24);
             this.saveChanges.TabIndex = 88;
@@ -656,7 +688,7 @@
             // SubmitOrder
             // 
             this.SubmitOrder.Location = new System.Drawing.Point(317, 547);
-            this.SubmitOrder.Margin = new System.Windows.Forms.Padding(2);
+            this.SubmitOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubmitOrder.Name = "SubmitOrder";
             this.SubmitOrder.Size = new System.Drawing.Size(77, 29);
             this.SubmitOrder.TabIndex = 87;
@@ -667,7 +699,7 @@
             // textBox_lastShippedDate
             // 
             this.textBox_lastShippedDate.Location = new System.Drawing.Point(28, 558);
-            this.textBox_lastShippedDate.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_lastShippedDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_lastShippedDate.MaxLength = 10;
             this.textBox_lastShippedDate.Name = "textBox_lastShippedDate";
             this.textBox_lastShippedDate.ReadOnly = true;
@@ -678,7 +710,7 @@
             // textBox_email
             // 
             this.textBox_email.Location = new System.Drawing.Point(162, 233);
-            this.textBox_email.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_email.MaxLength = 33;
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.ReadOnly = true;
@@ -688,7 +720,7 @@
             // textBox_telephone
             // 
             this.textBox_telephone.Location = new System.Drawing.Point(28, 233);
-            this.textBox_telephone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_telephone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_telephone.MaxLength = 12;
             this.textBox_telephone.Name = "textBox_telephone";
             this.textBox_telephone.ReadOnly = true;
@@ -740,7 +772,7 @@
             // textBox_insurance
             // 
             this.textBox_insurance.Location = new System.Drawing.Point(212, 318);
-            this.textBox_insurance.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_insurance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_insurance.MaxLength = 66;
             this.textBox_insurance.Name = "textBox_insurance";
             this.textBox_insurance.ReadOnly = true;
@@ -750,7 +782,7 @@
             // textBox_paymentMethod
             // 
             this.textBox_paymentMethod.Location = new System.Drawing.Point(212, 274);
-            this.textBox_paymentMethod.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_paymentMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_paymentMethod.MaxLength = 19;
             this.textBox_paymentMethod.Name = "textBox_paymentMethod";
             this.textBox_paymentMethod.ReadOnly = true;
@@ -771,7 +803,7 @@
             // 
             this.checkBox5_reorder.AutoSize = true;
             this.checkBox5_reorder.Location = new System.Drawing.Point(378, 514);
-            this.checkBox5_reorder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox5_reorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox5_reorder.Name = "checkBox5_reorder";
             this.checkBox5_reorder.Size = new System.Drawing.Size(15, 14);
             this.checkBox5_reorder.TabIndex = 76;
@@ -782,7 +814,7 @@
             // 
             this.checkBox4_reorder.AutoSize = true;
             this.checkBox4_reorder.Location = new System.Drawing.Point(378, 491);
-            this.checkBox4_reorder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox4_reorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox4_reorder.Name = "checkBox4_reorder";
             this.checkBox4_reorder.Size = new System.Drawing.Size(15, 14);
             this.checkBox4_reorder.TabIndex = 75;
@@ -793,7 +825,7 @@
             // 
             this.checkBox3_reorder.AutoSize = true;
             this.checkBox3_reorder.Location = new System.Drawing.Point(378, 468);
-            this.checkBox3_reorder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox3_reorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox3_reorder.Name = "checkBox3_reorder";
             this.checkBox3_reorder.Size = new System.Drawing.Size(15, 14);
             this.checkBox3_reorder.TabIndex = 74;
@@ -804,7 +836,7 @@
             // 
             this.checkBox2__reorder.AutoSize = true;
             this.checkBox2__reorder.Location = new System.Drawing.Point(378, 445);
-            this.checkBox2__reorder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox2__reorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox2__reorder.Name = "checkBox2__reorder";
             this.checkBox2__reorder.Size = new System.Drawing.Size(15, 14);
             this.checkBox2__reorder.TabIndex = 73;
@@ -815,7 +847,7 @@
             // 
             this.checkBox1_reorder.AutoSize = true;
             this.checkBox1_reorder.Location = new System.Drawing.Point(378, 422);
-            this.checkBox1_reorder.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox1_reorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox1_reorder.Name = "checkBox1_reorder";
             this.checkBox1_reorder.Size = new System.Drawing.Size(15, 14);
             this.checkBox1_reorder.TabIndex = 72;
@@ -836,7 +868,7 @@
             // textBox_prescriber1
             // 
             this.textBox_prescriber1.Location = new System.Drawing.Point(223, 419);
-            this.textBox_prescriber1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_prescriber1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_prescriber1.MaxLength = 33;
             this.textBox_prescriber1.Name = "textBox_prescriber1";
             this.textBox_prescriber1.ReadOnly = true;
@@ -847,7 +879,7 @@
             // textBox__prescriber2
             // 
             this.textBox__prescriber2.Location = new System.Drawing.Point(223, 442);
-            this.textBox__prescriber2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__prescriber2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__prescriber2.MaxLength = 33;
             this.textBox__prescriber2.Name = "textBox__prescriber2";
             this.textBox__prescriber2.ReadOnly = true;
@@ -858,7 +890,7 @@
             // textBox__prescriber3
             // 
             this.textBox__prescriber3.Location = new System.Drawing.Point(223, 465);
-            this.textBox__prescriber3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__prescriber3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__prescriber3.MaxLength = 33;
             this.textBox__prescriber3.Name = "textBox__prescriber3";
             this.textBox__prescriber3.ReadOnly = true;
@@ -869,7 +901,7 @@
             // textBox__prescriber5
             // 
             this.textBox__prescriber5.Location = new System.Drawing.Point(223, 510);
-            this.textBox__prescriber5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__prescriber5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__prescriber5.MaxLength = 33;
             this.textBox__prescriber5.Name = "textBox__prescriber5";
             this.textBox__prescriber5.ReadOnly = true;
@@ -880,7 +912,7 @@
             // textBox__prescriber4
             // 
             this.textBox__prescriber4.Location = new System.Drawing.Point(223, 488);
-            this.textBox__prescriber4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__prescriber4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__prescriber4.MaxLength = 33;
             this.textBox__prescriber4.Name = "textBox__prescriber4";
             this.textBox__prescriber4.ReadOnly = true;
@@ -913,7 +945,7 @@
             // textBox__refill5
             // 
             this.textBox__refill5.Location = new System.Drawing.Point(190, 510);
-            this.textBox__refill5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__refill5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__refill5.MaxLength = 2;
             this.textBox__refill5.Name = "textBox__refill5";
             this.textBox__refill5.ReadOnly = true;
@@ -924,7 +956,7 @@
             // textBox__refill4
             // 
             this.textBox__refill4.Location = new System.Drawing.Point(190, 488);
-            this.textBox__refill4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox__refill4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox__refill4.MaxLength = 2;
             this.textBox__refill4.Name = "textBox__refill4";
             this.textBox__refill4.ReadOnly = true;
@@ -935,7 +967,7 @@
             // textBox_refill3
             // 
             this.textBox_refill3.Location = new System.Drawing.Point(190, 465);
-            this.textBox_refill3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_refill3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_refill3.MaxLength = 2;
             this.textBox_refill3.Name = "textBox_refill3";
             this.textBox_refill3.ReadOnly = true;
@@ -946,7 +978,7 @@
             // textBox_refill2
             // 
             this.textBox_refill2.Location = new System.Drawing.Point(190, 442);
-            this.textBox_refill2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_refill2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_refill2.MaxLength = 2;
             this.textBox_refill2.Name = "textBox_refill2";
             this.textBox_refill2.ReadOnly = true;
@@ -957,7 +989,7 @@
             // textBox_refill1
             // 
             this.textBox_refill1.Location = new System.Drawing.Point(190, 419);
-            this.textBox_refill1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_refill1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_refill1.MaxLength = 2;
             this.textBox_refill1.Name = "textBox_refill1";
             this.textBox_refill1.ReadOnly = true;
@@ -979,7 +1011,7 @@
             // textBox_RxList1
             // 
             this.textBox_RxList1.Location = new System.Drawing.Point(28, 419);
-            this.textBox_RxList1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_RxList1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_RxList1.MaxLength = 33;
             this.textBox_RxList1.Name = "textBox_RxList1";
             this.textBox_RxList1.ReadOnly = true;
@@ -990,7 +1022,7 @@
             // textBox_RxList2
             // 
             this.textBox_RxList2.Location = new System.Drawing.Point(28, 442);
-            this.textBox_RxList2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_RxList2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_RxList2.MaxLength = 33;
             this.textBox_RxList2.Name = "textBox_RxList2";
             this.textBox_RxList2.ReadOnly = true;
@@ -1001,7 +1033,7 @@
             // textBox_RxList3
             // 
             this.textBox_RxList3.Location = new System.Drawing.Point(28, 465);
-            this.textBox_RxList3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_RxList3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_RxList3.MaxLength = 33;
             this.textBox_RxList3.Name = "textBox_RxList3";
             this.textBox_RxList3.ReadOnly = true;
@@ -1012,7 +1044,7 @@
             // textBox_RxList5
             // 
             this.textBox_RxList5.Location = new System.Drawing.Point(28, 510);
-            this.textBox_RxList5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_RxList5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_RxList5.MaxLength = 33;
             this.textBox_RxList5.Name = "textBox_RxList5";
             this.textBox_RxList5.ReadOnly = true;
@@ -1023,7 +1055,7 @@
             // textBox_RxList4
             // 
             this.textBox_RxList4.Location = new System.Drawing.Point(28, 488);
-            this.textBox_RxList4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_RxList4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_RxList4.MaxLength = 33;
             this.textBox_RxList4.Name = "textBox_RxList4";
             this.textBox_RxList4.ReadOnly = true;
@@ -1034,7 +1066,7 @@
             // textBox_drugAllergies3
             // 
             this.textBox_drugAllergies3.Location = new System.Drawing.Point(28, 318);
-            this.textBox_drugAllergies3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_drugAllergies3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_drugAllergies3.MaxLength = 33;
             this.textBox_drugAllergies3.Name = "textBox_drugAllergies3";
             this.textBox_drugAllergies3.ReadOnly = true;
@@ -1044,7 +1076,7 @@
             // textBox_drugAllergies2
             // 
             this.textBox_drugAllergies2.Location = new System.Drawing.Point(28, 297);
-            this.textBox_drugAllergies2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_drugAllergies2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_drugAllergies2.MaxLength = 33;
             this.textBox_drugAllergies2.Name = "textBox_drugAllergies2";
             this.textBox_drugAllergies2.ReadOnly = true;
@@ -1054,7 +1086,7 @@
             // textBox_drugAllergies1
             // 
             this.textBox_drugAllergies1.Location = new System.Drawing.Point(28, 274);
-            this.textBox_drugAllergies1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_drugAllergies1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_drugAllergies1.MaxLength = 33;
             this.textBox_drugAllergies1.Name = "textBox_drugAllergies1";
             this.textBox_drugAllergies1.ReadOnly = true;
@@ -1064,7 +1096,7 @@
             // textBox_zipcode
             // 
             this.textBox_zipcode.Location = new System.Drawing.Point(212, 191);
-            this.textBox_zipcode.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_zipcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_zipcode.MaxLength = 5;
             this.textBox_zipcode.Name = "textBox_zipcode";
             this.textBox_zipcode.ReadOnly = true;
@@ -1075,7 +1107,7 @@
             // 
             this.textBox_state.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox_state.Location = new System.Drawing.Point(162, 191);
-            this.textBox_state.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_state.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_state.MaxLength = 2;
             this.textBox_state.Name = "textBox_state";
             this.textBox_state.ReadOnly = true;
@@ -1085,7 +1117,7 @@
             // textBox_city
             // 
             this.textBox_city.Location = new System.Drawing.Point(28, 191);
-            this.textBox_city.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_city.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_city.MaxLength = 33;
             this.textBox_city.Name = "textBox_city";
             this.textBox_city.ReadOnly = true;
@@ -1095,7 +1127,7 @@
             // textBox_streetAddress
             // 
             this.textBox_streetAddress.Location = new System.Drawing.Point(28, 154);
-            this.textBox_streetAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_streetAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_streetAddress.MaxLength = 33;
             this.textBox_streetAddress.Name = "textBox_streetAddress";
             this.textBox_streetAddress.ReadOnly = true;
@@ -1105,7 +1137,7 @@
             // textBox_dateOfBirth
             // 
             this.textBox_dateOfBirth.Location = new System.Drawing.Point(290, 115);
-            this.textBox_dateOfBirth.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_dateOfBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_dateOfBirth.MaxLength = 10;
             this.textBox_dateOfBirth.Name = "textBox_dateOfBirth";
             this.textBox_dateOfBirth.ReadOnly = true;
@@ -1116,7 +1148,7 @@
             // textBox_lastName
             // 
             this.textBox_lastName.Location = new System.Drawing.Point(141, 115);
-            this.textBox_lastName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_lastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_lastName.MaxLength = 33;
             this.textBox_lastName.Name = "textBox_lastName";
             this.textBox_lastName.ReadOnly = true;
@@ -1126,7 +1158,7 @@
             // textBox_firstName
             // 
             this.textBox_firstName.Location = new System.Drawing.Point(28, 115);
-            this.textBox_firstName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_firstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_firstName.MaxLength = 33;
             this.textBox_firstName.Name = "textBox_firstName";
             this.textBox_firstName.ReadOnly = true;
@@ -1149,7 +1181,7 @@
             // 
             this.textBox_searchName.AcceptsReturn = true;
             this.textBox_searchName.Location = new System.Drawing.Point(28, 57);
-            this.textBox_searchName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_searchName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_searchName.MaxLength = 33;
             this.textBox_searchName.Name = "textBox_searchName";
             this.textBox_searchName.Size = new System.Drawing.Size(283, 20);
@@ -1160,7 +1192,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(357, 19);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(47, 41);
             this.pictureBox1.TabIndex = 40;
@@ -1246,16 +1278,269 @@
             this.label_firstName.TabIndex = 22;
             this.label_firstName.Text = "First Name";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.goBack_btn);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.checkBox1);
+            this.panel4.Controls.Add(this.checkBox2);
+            this.panel4.Controls.Add(this.checkBox3);
+            this.panel4.Controls.Add(this.checkBox4);
+            this.panel4.Controls.Add(this.checkBox5);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.textBox3);
+            this.panel4.Controls.Add(this.textBox4);
+            this.panel4.Controls.Add(this.textBox5);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.textBox6);
+            this.panel4.Controls.Add(this.textBox7);
+            this.panel4.Controls.Add(this.textBox8);
+            this.panel4.Controls.Add(this.textBox9);
+            this.panel4.Controls.Add(this.textBox10);
+            this.panel4.Controls.Add(this.RefillRequestTitle);
+            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Location = new System.Drawing.Point(711, 29);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(286, 315);
+            this.panel4.TabIndex = 5;
+            // 
+            // goBack_btn
+            // 
+            this.goBack_btn.Location = new System.Drawing.Point(197, 277);
+            this.goBack_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.goBack_btn.Name = "goBack_btn";
+            this.goBack_btn.Size = new System.Drawing.Size(65, 22);
+            this.goBack_btn.TabIndex = 113;
+            this.goBack_btn.Text = "Go Back";
+            this.goBack_btn.UseVisualStyleBackColor = true;
+            this.goBack_btn.Click += new System.EventHandler(this.goBack_btn_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(185, 234);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(77, 29);
+            this.button3.TabIndex = 111;
+            this.button3.Text = "Submit Order";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(249, 205);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 109;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(249, 181);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 108;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(249, 158);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 107;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(249, 136);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.TabIndex = 106;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(249, 112);
+            this.checkBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(15, 14);
+            this.checkBox5.TabIndex = 105;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(230, 93);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 104;
+            this.label3.Text = "Reorder";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(195, 93);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 103;
+            this.label1.Text = "Refill";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(196, 201);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.MaxLength = 2;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(30, 20);
+            this.textBox1.TabIndex = 102;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(196, 179);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.MaxLength = 2;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(30, 20);
+            this.textBox2.TabIndex = 101;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(196, 155);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.MaxLength = 2;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(30, 20);
+            this.textBox3.TabIndex = 100;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(196, 132);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.MaxLength = 2;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(30, 20);
+            this.textBox4.TabIndex = 99;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(196, 110);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.MaxLength = 2;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(30, 20);
+            this.textBox5.TabIndex = 98;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 93);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Prescription List";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(13, 110);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.MaxLength = 33;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(180, 20);
+            this.textBox6.TabIndex = 96;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(13, 132);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.MaxLength = 33;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(180, 20);
+            this.textBox7.TabIndex = 95;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(13, 155);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.MaxLength = 33;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(180, 20);
+            this.textBox8.TabIndex = 94;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(13, 201);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox9.MaxLength = 33;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(180, 20);
+            this.textBox9.TabIndex = 93;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(13, 179);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox10.MaxLength = 33;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(180, 20);
+            this.textBox10.TabIndex = 92;
+            // 
+            // RefillRequestTitle
+            // 
+            this.RefillRequestTitle.AutoSize = true;
+            this.RefillRequestTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefillRequestTitle.Location = new System.Drawing.Point(23, 32);
+            this.RefillRequestTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.RefillRequestTitle.Name = "RefillRequestTitle";
+            this.RefillRequestTitle.Size = new System.Drawing.Size(194, 24);
+            this.RefillRequestTitle.TabIndex = 91;
+            this.RefillRequestTitle.Text = "Refill Request Form";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(221, 19);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 41);
+            this.pictureBox2.TabIndex = 90;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AcceptButton = this.submit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 637);
+            this.ClientSize = new System.Drawing.Size(1443, 686);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1267,6 +1552,9 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1296,9 +1584,6 @@
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox streetAddressTextBox;
-        private System.Windows.Forms.TextBox drugAllergyTextBox3;
-        private System.Windows.Forms.TextBox drugAllergyTextBox2;
-        private System.Windows.Forms.TextBox drugAllergyTextBox1;
         private System.Windows.Forms.TextBox paymentMethodTextBox;
         private System.Windows.Forms.TextBox insuranceTextBox;
         private System.Windows.Forms.TextBox zipCodeTextBox;
@@ -1369,6 +1654,34 @@
         private System.Windows.Forms.CheckBox checkBox3_reorder;
         private System.Windows.Forms.CheckBox checkBox2__reorder;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label phoneNumber;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Label email;
+        private System.Windows.Forms.TextBox telephoneNumberTextBox;
+        private System.Windows.Forms.RichTextBox allergyTextBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label RefillRequestTitle;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button goBack_btn;
     }
 }
 

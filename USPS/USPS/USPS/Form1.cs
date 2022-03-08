@@ -31,6 +31,7 @@ namespace USPS
             //hide currently unused elements
             panel2.Visible = false;
             panel3.Visible = false;
+            panel4.Visible = false;
 
             //set form to autosize to currently used elements
             this.AutoSize = true;
@@ -123,7 +124,7 @@ namespace USPS
                 textBox_city.Text = info["city"];
                 zipCodeTextBox.Text = info["zip"];
                 textBox_zipcode.Text = info["zip"];
-                drugAllergyTextBox1.Text = info["allergy"];
+                allergyTextBox.Text = info["allergy"];
                 textBox_drugAllergies1.Text = info["allergy"];
                 dbID = info["ID"];
             }
@@ -162,7 +163,7 @@ namespace USPS
                 textBox_city.Text = info["city"];
                 zipCodeTextBox.Text = info["zip"];
                 textBox_zipcode.Text = info["zip"];
-                drugAllergyTextBox1.Text = info["allergy"];
+                allergyTextBox.Text = info["allergy"];
                 textBox_drugAllergies1.Text = info["allergy"];
                 dbID = info["ID"];
             }
@@ -185,7 +186,7 @@ namespace USPS
                 info.Add("city", cityTextBox.Text);
                 info.Add("state", stateTextBox.Text);
                 info.Add("zip", zipCodeTextBox.Text);
-                info.Add("allergy", drugAllergyTextBox1.Text);
+                info.Add("allergy", allergyTextBox.Text);
 
                 db.infoUpdater(info);
             }
@@ -240,9 +241,7 @@ namespace USPS
                     zipCodeTextBox.ReadOnly = false;
                     insuranceTextBox.ReadOnly = false;
                     paymentMethodTextBox.ReadOnly = false;
-                    drugAllergyTextBox1.ReadOnly = false;
-                    drugAllergyTextBox2.ReadOnly = false;
-                    drugAllergyTextBox3.ReadOnly = false;
+                    allergyTextBox.ReadOnly = false;
                 }
                 else
                 {
@@ -275,9 +274,7 @@ namespace USPS
                     zipCodeTextBox.ReadOnly = true;
                     insuranceTextBox.ReadOnly = true;
                     paymentMethodTextBox.ReadOnly = true;
-                    drugAllergyTextBox1.ReadOnly = true;
-                    drugAllergyTextBox2.ReadOnly = true;
-                    drugAllergyTextBox3.ReadOnly = true;
+                    allergyTextBox.ReadOnly = true;
 
                     edit.Enabled = true;
                     Edit_onPharmForm.Enabled = true;
@@ -744,6 +741,16 @@ namespace USPS
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void goBack_btn_Click(object sender, EventArgs e)
         {
 
         }

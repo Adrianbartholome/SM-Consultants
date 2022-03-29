@@ -19,6 +19,7 @@ namespace USPS
         public static bool pharmPanelSwitch = false;
         public static bool adminPanelSwitch = false;
         public static bool newUserCheck = false;
+        public static bool noAdditionalData = false;
         static bool editCheck = false;
         static bool saveCheck = false;
         static string userPass;
@@ -83,13 +84,12 @@ namespace USPS
 
         private void user_TextChanged(object sender, EventArgs e)
         {
-            userID = user.Text;
+
         }
 
         private void pass_TextChanged(object sender, EventArgs e)
         {
 
-            userPass = pass.Text;
         }
         private void passPic_Click(object sender, EventArgs e)
         {
@@ -104,6 +104,9 @@ namespace USPS
         }
         private void submit_Click(object sender, EventArgs e)
         {
+            userID = user.Text;
+            userPass = pass.Text;
+
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "localhost\\SQLExpress";
             builder.InitialCatalog = "IT488_USPS";
@@ -112,7 +115,7 @@ namespace USPS
             builder.UserID = userID;
 
             db = new DB();
-
+            
             db.DBLogin(userPass, userID);
 
             infoFill();
@@ -122,11 +125,18 @@ namespace USPS
         {
             //populate user query data into dictionary, then use those keys to populate textboxes
             Dictionary<string, string> info = db.infoUpdateQuery();
-            List<string> scriptInfo = db.scripts();
-            List<int> refillInfo = db.refills();
-            List<string> prescribersInfo = db.prescribers();
-            string recent = db.recentOrder();
-
+            List<string> scriptInfo = new List<string>();
+            List<int> refillInfo = new List<int>();
+            List<string> prescribersInfo = new List<string>();
+            string recent = "";
+            if (noAdditionalData == false)
+            {
+                scriptInfo = db.scripts();
+                refillInfo = db.refills();
+                prescribersInfo = db.prescribers();
+                recent = db.recentOrder();
+            }
+            
             if (info != null)
             {
                 fnameUser.Text = fnamePharm.Text = fnameAdmin.Text = info["fname"];
@@ -142,27 +152,41 @@ namespace USPS
                 ccUser.Text = ccPharm.Text = ccAdmin.Text = info["cc"];
                 expUser.Text = expPharm.Text = expAdmin.Text = info["exp"];
                 insuranceUser.Text = insurancePharm.Text = insuranceAdmin.Text = info["insure"];
-
-                drFname.Text = info["docFname"];
-                drLname.Text = info["docLname"];
-                drPhone.Text = info["docPhone"];
-                drEmail.Text = info["docEmail"];
-                prescript1Refill.Text = prescript1Pharm.Text = prescript1Admin.Text = scriptInfo[0];
-                prescript2Refill.Text = prescript2Pharm.Text = prescript2Admin.Text = scriptInfo[1];
-                prescript3Refill.Text = prescript3Pharm.Text = prescript3Admin.Text = scriptInfo[2];
-                prescript4Refill.Text = prescript4Pharm.Text = prescript4Admin.Text = scriptInfo[3];
-                prescript5Refill.Text = prescript5Pharm.Text = prescript5Admin.Text = scriptInfo[4];
-                refill1Refill.Text = refill1Pharm.Text = refill1Admin.Text = refillInfo[0].ToString();
-                refill2Refill.Text = refill2Pharm.Text = refill2Admin.Text = refillInfo[1].ToString();
-                refill3Refill.Text = refill3Pharm.Text = refill3Admin.Text = refillInfo[2].ToString();
-                refill4Refill.Text = refill4Pharm.Text = refill4Admin.Text = refillInfo[3].ToString();
-                refill5Refill.Text = refill5Pharm.Text = refill5Admin.Text = refillInfo[4].ToString();
-                prescriber1Admin.Text = prescriber1Pharm.Text = prescribersInfo[0];
-                prescriber2Admin.Text = prescriber2Pharm.Text = prescribersInfo[1];
-                prescriber3Admin.Text = prescriber3Pharm.Text = prescribersInfo[2];
-                prescriber4Admin.Text = prescriber4Pharm.Text = prescribersInfo[3];
-                prescriber5Admin.Text = prescriber5Pharm.Text = prescribersInfo[4];
-                shippedPharm.Text = shippedAdmin.Text = recent;
+                if (info["docFname"] != "")
+                {
+                    drFname.Text = info["docFname"];
+                    drLname.Text = info["docLname"];
+                    drPhone.Text = info["docPhone"];
+                    drEmail.Text = info["docEmail"];
+                }
+                if (scriptInfo.Count > 0)
+                {
+                    prescript1Refill.Text = prescript1Pharm.Text = prescript1Admin.Text = scriptInfo[0];
+                    prescript2Refill.Text = prescript2Pharm.Text = prescript2Admin.Text = scriptInfo[1];
+                    prescript3Refill.Text = prescript3Pharm.Text = prescript3Admin.Text = scriptInfo[2];
+                    prescript4Refill.Text = prescript4Pharm.Text = prescript4Admin.Text = scriptInfo[3];
+                    prescript5Refill.Text = prescript5Pharm.Text = prescript5Admin.Text = scriptInfo[4];
+                }
+                if (refillInfo.Count > 0)
+                {
+                    refill1Refill.Text = refill1Pharm.Text = refill1Admin.Text = refillInfo[0].ToString();
+                    refill2Refill.Text = refill2Pharm.Text = refill2Admin.Text = refillInfo[1].ToString();
+                    refill3Refill.Text = refill3Pharm.Text = refill3Admin.Text = refillInfo[2].ToString();
+                    refill4Refill.Text = refill4Pharm.Text = refill4Admin.Text = refillInfo[3].ToString();
+                    refill5Refill.Text = refill5Pharm.Text = refill5Admin.Text = refillInfo[4].ToString();
+                }
+                if (prescribersInfo.Count > 0)
+                {
+                    prescriber1Admin.Text = prescriber1Pharm.Text = prescribersInfo[0];
+                    prescriber2Admin.Text = prescriber2Pharm.Text = prescribersInfo[1];
+                    prescriber3Admin.Text = prescriber3Pharm.Text = prescribersInfo[2];
+                    prescriber4Admin.Text = prescriber4Pharm.Text = prescribersInfo[3];
+                    prescriber5Admin.Text = prescriber5Pharm.Text = prescribersInfo[4];
+                }
+                if (recent != "")
+                {
+                    shippedPharm.Text = shippedAdmin.Text = recent;
+                }
                 dbID = info["ID"];
             }
             if (!failed)
@@ -206,22 +230,34 @@ namespace USPS
                 drLname.Text = info["docLname"];
                 drPhone.Text = info["docPhone"];
                 drEmail.Text = info["docEmail"];
-                prescript1Refill.Text = prescript1Pharm.Text = prescript1Admin.Text = scriptInfo[0];
-                prescript2Refill.Text = prescript2Pharm.Text = prescript2Admin.Text = scriptInfo[1];
-                prescript3Refill.Text = prescript3Pharm.Text = prescript3Admin.Text = scriptInfo[2];
-                prescript4Refill.Text = prescript4Pharm.Text = prescript4Admin.Text = scriptInfo[3];
-                prescript5Refill.Text = prescript5Pharm.Text = prescript5Admin.Text = scriptInfo[4];
-                refill1Refill.Text = refill1Pharm.Text = refill1Admin.Text = refillInfo[0].ToString();
-                refill2Refill.Text = refill2Pharm.Text = refill2Admin.Text = refillInfo[1].ToString();
-                refill3Refill.Text = refill3Pharm.Text = refill3Admin.Text = refillInfo[2].ToString();
-                refill4Refill.Text = refill4Pharm.Text = refill4Admin.Text = refillInfo[3].ToString();
-                refill5Refill.Text = refill5Pharm.Text = refill5Admin.Text = refillInfo[4].ToString();
-                prescriber1Admin.Text = prescriber1Pharm.Text = prescribersInfo[0];
-                prescriber2Admin.Text = prescriber2Pharm.Text = prescribersInfo[1];
-                prescriber3Admin.Text = prescriber3Pharm.Text = prescribersInfo[2];
-                prescriber4Admin.Text = prescriber4Pharm.Text = prescribersInfo[3];
-                prescriber5Admin.Text = prescriber5Pharm.Text = prescribersInfo[4];
-                shippedPharm.Text = shippedAdmin.Text = recent;
+                if (scriptInfo.Count > 0)
+                {
+                    prescript1Refill.Text = prescript1Pharm.Text = prescript1Admin.Text = scriptInfo[0];
+                    prescript2Refill.Text = prescript2Pharm.Text = prescript2Admin.Text = scriptInfo[1];
+                    prescript3Refill.Text = prescript3Pharm.Text = prescript3Admin.Text = scriptInfo[2];
+                    prescript4Refill.Text = prescript4Pharm.Text = prescript4Admin.Text = scriptInfo[3];
+                    prescript5Refill.Text = prescript5Pharm.Text = prescript5Admin.Text = scriptInfo[4];
+                }
+                if (refillInfo.Count > 0)
+                {
+                    refill1Refill.Text = refill1Pharm.Text = refill1Admin.Text = refillInfo[0].ToString();
+                    refill2Refill.Text = refill2Pharm.Text = refill2Admin.Text = refillInfo[1].ToString();
+                    refill3Refill.Text = refill3Pharm.Text = refill3Admin.Text = refillInfo[2].ToString();
+                    refill4Refill.Text = refill4Pharm.Text = refill4Admin.Text = refillInfo[3].ToString();
+                    refill5Refill.Text = refill5Pharm.Text = refill5Admin.Text = refillInfo[4].ToString();
+                }
+                if (prescribersInfo.Count > 0)
+                {
+                    prescriber1Admin.Text = prescriber1Pharm.Text = prescribersInfo[0];
+                    prescriber2Admin.Text = prescriber2Pharm.Text = prescribersInfo[1];
+                    prescriber3Admin.Text = prescriber3Pharm.Text = prescribersInfo[2];
+                    prescriber4Admin.Text = prescriber4Pharm.Text = prescribersInfo[3];
+                    prescriber5Admin.Text = prescriber5Pharm.Text = prescribersInfo[4];
+                }
+                if (recent != "")
+                {
+                    shippedPharm.Text = shippedAdmin.Text = recent;
+                }
 
                 dbID = info["ID"];
             }
@@ -1975,6 +2011,8 @@ namespace USPS
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'iT488_USPSDataSet.Purchase_Orders' table. You can move, or remove it, as needed.
+            //this.purchase_OrdersTableAdapter.Fill(this.iT488_USPSDataSet.Purchase_Orders);
 
         }
 
@@ -2145,7 +2183,21 @@ namespace USPS
 
         private void report_btn_Click(object sender, EventArgs e)
         {
+            //open and close the dataGrid, send report query
+            if (dataGridView1.Visible == false)
+            {
+                report_btn.Text = "Close Report";
+                dataGridView1.Location = new System.Drawing.Point(450, 29);
+                dataGridView1.Visible = true;
 
+                dataGridView1.DataSource = db.reportQuery(dateRange1.Text, dateRange2.Text);
+                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            else
+            {
+                dataGridView1.Visible = false;
+                report_btn.Text = "Request Report";
+            }
         }
 
         private void ccAdmin_TextChanged(object sender, EventArgs e)

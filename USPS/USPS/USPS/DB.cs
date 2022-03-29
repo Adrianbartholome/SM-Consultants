@@ -741,7 +741,7 @@ namespace USPS
             {
                 date2 = date2.Replace("April", "4");
             }
-            if (date2.Contains("Mary"))
+            if (date2.Contains("May"))
             {
                 date2 = date2.Replace("May", "5");
             }

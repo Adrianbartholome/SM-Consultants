@@ -194,18 +194,16 @@ namespace USPS
                 if (userID == "IT488_Admin")
                 {
                     adminPanelSwitch = true;
-                    formSwitch1();
                 }
                 else if (userID == "Pharmacist")
                 {
                     pharmPanelSwitch = true;
-                    formSwitch1();
                 }
                 else if (info != null)
                 {
                     customerPanelSwitch = true;
-                    formSwitch1();
                 }
+                formSwitch1();
             }
         }
         public void searchResults(Dictionary<string, string> info, List<string> scriptInfo, 
@@ -603,6 +601,10 @@ namespace USPS
         {
             prescriberPanel.Visible = true;
             prescriberPanel.Location = new System.Drawing.Point(450, 29);
+            if (dataGridView1.Visible)
+            {
+                dataGridView1.Visible = false;
+            }
         }
         private void prescriberCloseClick(object sender, EventArgs e)
         {

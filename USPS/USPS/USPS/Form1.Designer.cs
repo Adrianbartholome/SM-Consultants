@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.loginPanel = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -177,8 +178,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.to_label = new System.Windows.Forms.Label();
             this.dateRange_label = new System.Windows.Forms.Label();
-            this.dateRangeTo_picker = new System.Windows.Forms.DateTimePicker();
-            this.dateRangeFrom_picker = new System.Windows.Forms.DateTimePicker();
+            this.dateRange2 = new System.Windows.Forms.DateTimePicker();
+            this.dateRange1 = new System.Windows.Forms.DateTimePicker();
             this.adminPanel_label = new System.Windows.Forms.Label();
             this.editAdmin = new System.Windows.Forms.Button();
             this.saveAdmin = new System.Windows.Forms.Button();
@@ -240,6 +241,17 @@
             this.drFname = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iT488_USPSDataSet = new USPS.IT488_USPSDataSet();
+            this.purchaseOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.purchase_OrdersTableAdapter = new USPS.IT488_USPSDataSetTableAdapters.Purchase_OrdersTableAdapter();
+            this.pOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pODateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOShipDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescriptionPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -265,6 +277,9 @@
             this.prescriberPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iT488_USPSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrdersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // loginPanel
@@ -1992,8 +2007,8 @@
             this.adminPanel.Controls.Add(this.comboBox1);
             this.adminPanel.Controls.Add(this.to_label);
             this.adminPanel.Controls.Add(this.dateRange_label);
-            this.adminPanel.Controls.Add(this.dateRangeTo_picker);
-            this.adminPanel.Controls.Add(this.dateRangeFrom_picker);
+            this.adminPanel.Controls.Add(this.dateRange2);
+            this.adminPanel.Controls.Add(this.dateRange1);
             this.adminPanel.Controls.Add(this.adminPanel_label);
             this.adminPanel.Controls.Add(this.editAdmin);
             this.adminPanel.Controls.Add(this.saveAdmin);
@@ -2179,21 +2194,21 @@
             this.dateRange_label.Text = "Date Range";
             this.dateRange_label.Click += new System.EventHandler(this.label22_Click_1);
             // 
-            // dateRangeTo_picker
+            // dateRange2
             // 
-            this.dateRangeTo_picker.Location = new System.Drawing.Point(207, 646);
-            this.dateRangeTo_picker.Margin = new System.Windows.Forms.Padding(2);
-            this.dateRangeTo_picker.Name = "dateRangeTo_picker";
-            this.dateRangeTo_picker.Size = new System.Drawing.Size(151, 20);
-            this.dateRangeTo_picker.TabIndex = 107;
+            this.dateRange2.Location = new System.Drawing.Point(207, 646);
+            this.dateRange2.Margin = new System.Windows.Forms.Padding(2);
+            this.dateRange2.Name = "dateRange2";
+            this.dateRange2.Size = new System.Drawing.Size(151, 20);
+            this.dateRange2.TabIndex = 107;
             // 
-            // dateRangeFrom_picker
+            // dateRange1
             // 
-            this.dateRangeFrom_picker.Location = new System.Drawing.Point(28, 646);
-            this.dateRangeFrom_picker.Margin = new System.Windows.Forms.Padding(2);
-            this.dateRangeFrom_picker.Name = "dateRangeFrom_picker";
-            this.dateRangeFrom_picker.Size = new System.Drawing.Size(151, 20);
-            this.dateRangeFrom_picker.TabIndex = 106;
+            this.dateRange1.Location = new System.Drawing.Point(28, 646);
+            this.dateRange1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateRange1.Name = "dateRange1";
+            this.dateRange1.Size = new System.Drawing.Size(151, 20);
+            this.dateRange1.TabIndex = 106;
             // 
             // adminPanel_label
             // 
@@ -2895,12 +2910,92 @@
             this.pictureBox17.TabIndex = 118;
             this.pictureBox17.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pOIDDataGridViewTextBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.pODateDataGridViewTextBoxColumn,
+            this.prescriptionIDDataGridViewTextBoxColumn,
+            this.pOTotalDataGridViewTextBoxColumn,
+            this.pOShipDateDataGridViewTextBoxColumn,
+            this.prescriptionPriceDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.purchaseOrdersBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(1433, 29);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(740, 740);
+            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.Visible = false;
+            // 
+            // iT488_USPSDataSet
+            // 
+            this.iT488_USPSDataSet.DataSetName = "IT488_USPSDataSet";
+            this.iT488_USPSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // purchaseOrdersBindingSource
+            // 
+            this.purchaseOrdersBindingSource.DataMember = "Purchase_Orders";
+            this.purchaseOrdersBindingSource.DataSource = this.iT488_USPSDataSet;
+            // 
+            // purchase_OrdersTableAdapter
+            // 
+            this.purchase_OrdersTableAdapter.ClearBeforeFill = true;
+            // 
+            // pOIDDataGridViewTextBoxColumn
+            // 
+            this.pOIDDataGridViewTextBoxColumn.DataPropertyName = "PO_ID";
+            this.pOIDDataGridViewTextBoxColumn.HeaderText = "PO_ID";
+            this.pOIDDataGridViewTextBoxColumn.Name = "pOIDDataGridViewTextBoxColumn";
+            this.pOIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            // 
+            // pODateDataGridViewTextBoxColumn
+            // 
+            this.pODateDataGridViewTextBoxColumn.DataPropertyName = "PO_Date";
+            this.pODateDataGridViewTextBoxColumn.HeaderText = "PO_Date";
+            this.pODateDataGridViewTextBoxColumn.Name = "pODateDataGridViewTextBoxColumn";
+            // 
+            // prescriptionIDDataGridViewTextBoxColumn
+            // 
+            this.prescriptionIDDataGridViewTextBoxColumn.DataPropertyName = "Prescription_ID";
+            this.prescriptionIDDataGridViewTextBoxColumn.HeaderText = "Prescription_ID";
+            this.prescriptionIDDataGridViewTextBoxColumn.Name = "prescriptionIDDataGridViewTextBoxColumn";
+            // 
+            // pOTotalDataGridViewTextBoxColumn
+            // 
+            this.pOTotalDataGridViewTextBoxColumn.DataPropertyName = "PO_Total";
+            this.pOTotalDataGridViewTextBoxColumn.HeaderText = "PO_Total";
+            this.pOTotalDataGridViewTextBoxColumn.Name = "pOTotalDataGridViewTextBoxColumn";
+            // 
+            // pOShipDateDataGridViewTextBoxColumn
+            // 
+            this.pOShipDateDataGridViewTextBoxColumn.DataPropertyName = "PO_ShipDate";
+            this.pOShipDateDataGridViewTextBoxColumn.HeaderText = "PO_ShipDate";
+            this.pOShipDateDataGridViewTextBoxColumn.Name = "pOShipDateDataGridViewTextBoxColumn";
+            // 
+            // prescriptionPriceDataGridViewTextBoxColumn
+            // 
+            this.prescriptionPriceDataGridViewTextBoxColumn.DataPropertyName = "Prescription_Price";
+            this.prescriptionPriceDataGridViewTextBoxColumn.HeaderText = "Prescription_Price";
+            this.prescriptionPriceDataGridViewTextBoxColumn.Name = "prescriptionPriceDataGridViewTextBoxColumn";
+            // 
             // Form1
             // 
             this.AcceptButton = this.login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1442, 793);
+            this.ClientSize = new System.Drawing.Size(1680, 793);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.prescriberPanel);
             this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.refillPanel);
@@ -2943,6 +3038,9 @@
             this.prescriberPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iT488_USPSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseOrdersBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3119,8 +3217,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DateTimePicker dateRangeTo_picker;
-        private System.Windows.Forms.DateTimePicker dateRangeFrom_picker;
+        private System.Windows.Forms.DateTimePicker dateRange2;
+        private System.Windows.Forms.DateTimePicker dateRange1;
         private System.Windows.Forms.Label adminPanel_label;
         private System.Windows.Forms.Label dateRange_label;
         private System.Windows.Forms.CheckBox dailyFill_chkbox;
@@ -3160,6 +3258,17 @@
         private System.Windows.Forms.TextBox drEmail;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox drLname;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private IT488_USPSDataSet iT488_USPSDataSet;
+        private System.Windows.Forms.BindingSource purchaseOrdersBindingSource;
+        private IT488_USPSDataSetTableAdapters.Purchase_OrdersTableAdapter purchase_OrdersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pODateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOShipDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionPriceDataGridViewTextBoxColumn;
     }
 }
 

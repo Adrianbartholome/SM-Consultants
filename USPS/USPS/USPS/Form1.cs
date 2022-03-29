@@ -904,25 +904,6 @@ namespace USPS
             }
         }
 
-        private void report_btn_Click(object sender, EventArgs e)
-        {
-            //open and close the dataGrid, send report query
-            if (dataGridView1.Visible == false)
-            {
-                report_btn.Text = "Close Report";
-                dataGridView1.Location = new System.Drawing.Point(450, 29);
-                dataGridView1.Visible = true;
-
-                dataGridView1.DataSource = db.reportQuery(dateRange1.Text, dateRange2.Text);
-                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            }
-            else
-            {
-                dataGridView1.Visible = false;
-                report_btn.Text = "Request Report";
-            }
-        }
-
         // ---- textbox validation section -----
 
         // Login page validation
@@ -1994,8 +1975,6 @@ namespace USPS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'iT488_USPSDataSet.Purchase_Orders' table. You can move, or remove it, as needed.
-            //this.purchase_OrdersTableAdapter.Fill(this.iT488_USPSDataSet.Purchase_Orders);
 
         }
 
@@ -2162,7 +2141,12 @@ namespace USPS
         private void Adherence_CheckedChanged(object sender, EventArgs e)
         {
 
-        } 
+        }
+
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void ccAdmin_TextChanged(object sender, EventArgs e)
         {

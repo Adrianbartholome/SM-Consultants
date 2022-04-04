@@ -175,7 +175,7 @@
             this.dailyFill_chkbox = new System.Windows.Forms.CheckBox();
             this.report_btn = new System.Windows.Forms.Button();
             this.orderStatus_dropdown = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.orderStatus = new System.Windows.Forms.ComboBox();
             this.to_label = new System.Windows.Forms.Label();
             this.dateRange_label = new System.Windows.Forms.Label();
             this.dateRange2 = new System.Windows.Forms.DateTimePicker();
@@ -314,7 +314,6 @@
             this.pictureBox10.Size = new System.Drawing.Size(15, 16);
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.passPic_Click);
             // 
             // pictureBox9
             // 
@@ -420,7 +419,6 @@
             this.password.Size = new System.Drawing.Size(56, 15);
             this.password.TabIndex = 3;
             this.password.Text = "Password";
-            this.password.Click += new System.EventHandler(this.password_Click);
             // 
             // pass
             // 
@@ -433,7 +431,6 @@
             this.pass.Size = new System.Drawing.Size(149, 15);
             this.pass.TabIndex = 2;
             this.pass.UseSystemPasswordChar = true;
-            this.pass.TextChanged += new System.EventHandler(this.pass_TextChanged);
             this.pass.Validating += new System.ComponentModel.CancelEventHandler(this.pass_Validating);
             // 
             // user
@@ -446,7 +443,6 @@
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(149, 15);
             this.user.TabIndex = 1;
-            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.Validating += new System.ComponentModel.CancelEventHandler(this.user_Validating);
             // 
             // userName
@@ -459,7 +455,6 @@
             this.userName.Size = new System.Drawing.Size(61, 15);
             this.userName.TabIndex = 0;
             this.userName.Text = "User name";
-            this.userName.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // pictureBox4
             // 
@@ -700,7 +695,6 @@
             this.zipUser.ReadOnly = true;
             this.zipUser.Size = new System.Drawing.Size(60, 22);
             this.zipUser.TabIndex = 10;
-            this.zipUser.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.zipUser.Validating += new System.ComponentModel.CancelEventHandler(this.zipUser_Validating);
             // 
             // stateUser
@@ -726,7 +720,6 @@
             this.cityUser.ReadOnly = true;
             this.cityUser.Size = new System.Drawing.Size(254, 22);
             this.cityUser.TabIndex = 8;
-            this.cityUser.TextChanged += new System.EventHandler(this.cityTextBox_TextChanged);
             this.cityUser.Validating += new System.ComponentModel.CancelEventHandler(this.cityUser_Validating);
             // 
             // streetUser
@@ -738,7 +731,6 @@
             this.streetUser.ReadOnly = true;
             this.streetUser.Size = new System.Drawing.Size(254, 22);
             this.streetUser.TabIndex = 7;
-            this.streetUser.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.streetUser.Validating += new System.ComponentModel.CancelEventHandler(this.streetUser_Validating);
             // 
             // dobUser
@@ -761,7 +753,6 @@
             this.lnameUser.ReadOnly = true;
             this.lnameUser.Size = new System.Drawing.Size(142, 22);
             this.lnameUser.TabIndex = 5;
-            this.lnameUser.TextChanged += new System.EventHandler(this.lastNameTextBox_TextChanged);
             this.lnameUser.Validating += new System.ComponentModel.CancelEventHandler(this.lnameUser_Validating);
             // 
             // fnameUser
@@ -773,7 +764,6 @@
             this.fnameUser.ReadOnly = true;
             this.fnameUser.Size = new System.Drawing.Size(101, 22);
             this.fnameUser.TabIndex = 4;
-            this.fnameUser.TextChanged += new System.EventHandler(this.firstNameTextBox_TextChanged);
             this.fnameUser.Validating += new System.ComponentModel.CancelEventHandler(this.fnameUser_Validating);
             // 
             // drugAllergies
@@ -799,7 +789,6 @@
             this.dob.Size = new System.Drawing.Size(70, 15);
             this.dob.TabIndex = 8;
             this.dob.Text = "Date of Birth";
-            this.dob.Click += new System.EventHandler(this.label1_Click_5);
             // 
             // paymentMethod
             // 
@@ -872,7 +861,6 @@
             this.streetAddress.Size = new System.Drawing.Size(82, 15);
             this.streetAddress.TabIndex = 2;
             this.streetAddress.Text = "Street Address";
-            this.streetAddress.Click += new System.EventHandler(this.label1_Click_4);
             // 
             // lastName
             // 
@@ -885,7 +873,6 @@
             this.lastName.Size = new System.Drawing.Size(62, 15);
             this.lastName.TabIndex = 1;
             this.lastName.Text = "Last Name";
-            this.lastName.Click += new System.EventHandler(this.label1_Click_3);
             // 
             // firstName
             // 
@@ -898,7 +885,6 @@
             this.firstName.Size = new System.Drawing.Size(63, 15);
             this.firstName.TabIndex = 0;
             this.firstName.Text = "First Name";
-            this.firstName.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // pharmPanel
             // 
@@ -970,7 +956,6 @@
             this.pharmPanel.Name = "pharmPanel";
             this.pharmPanel.Size = new System.Drawing.Size(424, 593);
             this.pharmPanel.TabIndex = 4;
-            this.pharmPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pharmPanel_Paint);
             // 
             // pictureBox14
             // 
@@ -1087,7 +1072,6 @@
             this.shippedPharm.ReadOnly = true;
             this.shippedPharm.Size = new System.Drawing.Size(128, 22);
             this.shippedPharm.TabIndex = 76;
-            this.shippedPharm.TextChanged += new System.EventHandler(this.textBox30_TextChanged);
             // 
             // emailPharm
             // 
@@ -1124,7 +1108,6 @@
             this.label_email.Size = new System.Drawing.Size(38, 15);
             this.label_email.TabIndex = 83;
             this.label_email.Text = "E-mail";
-            this.label_email.Click += new System.EventHandler(this.label17_Click);
             // 
             // label_telephone
             // 
@@ -1148,7 +1131,6 @@
             this.label_lastShippedDate.Size = new System.Drawing.Size(98, 15);
             this.label_lastShippedDate.TabIndex = 81;
             this.label_lastShippedDate.Text = "Last Shipped Date";
-            this.label_lastShippedDate.Click += new System.EventHandler(this.label15_Click);
             // 
             // label_insurance
             // 
@@ -1195,7 +1177,6 @@
             this.label_paymentMethod.Size = new System.Drawing.Size(106, 15);
             this.label_paymentMethod.TabIndex = 77;
             this.label_paymentMethod.Text = "Credit Card Number";
-            this.label_paymentMethod.Click += new System.EventHandler(this.label_paymentMethod_Click);
             // 
             // checkBox5Pharm
             // 
@@ -1262,7 +1243,6 @@
             this.label_reorder.Size = new System.Drawing.Size(46, 15);
             this.label_reorder.TabIndex = 71;
             this.label_reorder.Text = "Reorder";
-            this.label_reorder.Click += new System.EventHandler(this.label12_Click);
             // 
             // prescriber1Pharm
             // 
@@ -1273,7 +1253,6 @@
             this.prescriber1Pharm.ReadOnly = true;
             this.prescriber1Pharm.Size = new System.Drawing.Size(133, 22);
             this.prescriber1Pharm.TabIndex = 58;
-            this.prescriber1Pharm.TextChanged += new System.EventHandler(this.textBox21_TextChanged);
             this.prescriber1Pharm.DoubleClick += new System.EventHandler(this.prescriberName_DoubleClick);
             // 
             // prescriber2Pharm
@@ -1285,7 +1264,6 @@
             this.prescriber2Pharm.ReadOnly = true;
             this.prescriber2Pharm.Size = new System.Drawing.Size(133, 22);
             this.prescriber2Pharm.TabIndex = 62;
-            this.prescriber2Pharm.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
             this.prescriber2Pharm.DoubleClick += new System.EventHandler(this.prescriberName_DoubleClick);
             // 
             // prescriber3Pharm
@@ -1297,7 +1275,6 @@
             this.prescriber3Pharm.ReadOnly = true;
             this.prescriber3Pharm.Size = new System.Drawing.Size(133, 22);
             this.prescriber3Pharm.TabIndex = 66;
-            this.prescriber3Pharm.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
             this.prescriber3Pharm.DoubleClick += new System.EventHandler(this.prescriberName_DoubleClick);
             // 
             // prescriber5Pharm
@@ -1309,7 +1286,6 @@
             this.prescriber5Pharm.ReadOnly = true;
             this.prescriber5Pharm.Size = new System.Drawing.Size(133, 22);
             this.prescriber5Pharm.TabIndex = 74;
-            this.prescriber5Pharm.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
             this.prescriber5Pharm.DoubleClick += new System.EventHandler(this.prescriberName_DoubleClick);
             // 
             // prescriber4Pharm
@@ -1321,7 +1297,6 @@
             this.prescriber4Pharm.ReadOnly = true;
             this.prescriber4Pharm.Size = new System.Drawing.Size(133, 22);
             this.prescriber4Pharm.TabIndex = 70;
-            this.prescriber4Pharm.TextChanged += new System.EventHandler(this.textBox25_TextChanged);
             this.prescriber4Pharm.DoubleClick += new System.EventHandler(this.prescriberName_DoubleClick);
             // 
             // label_prescriber
@@ -1335,7 +1310,6 @@
             this.label_prescriber.Size = new System.Drawing.Size(59, 15);
             this.label_prescriber.TabIndex = 65;
             this.label_prescriber.Text = "Prescriber";
-            this.label_prescriber.Click += new System.EventHandler(this.label11_Click);
             // 
             // label_refill
             // 
@@ -1348,7 +1322,6 @@
             this.label_refill.Size = new System.Drawing.Size(33, 15);
             this.label_refill.TabIndex = 64;
             this.label_refill.Text = "Refill";
-            this.label_refill.Click += new System.EventHandler(this.label10_Click);
             // 
             // refill5Pharm
             // 
@@ -1359,7 +1332,6 @@
             this.refill5Pharm.ReadOnly = true;
             this.refill5Pharm.Size = new System.Drawing.Size(30, 22);
             this.refill5Pharm.TabIndex = 73;
-            this.refill5Pharm.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
             // 
             // refill4Pharm
             // 
@@ -1370,7 +1342,6 @@
             this.refill4Pharm.ReadOnly = true;
             this.refill4Pharm.Size = new System.Drawing.Size(30, 22);
             this.refill4Pharm.TabIndex = 69;
-            this.refill4Pharm.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
             // 
             // refill3Pharm
             // 
@@ -1381,7 +1352,6 @@
             this.refill3Pharm.ReadOnly = true;
             this.refill3Pharm.Size = new System.Drawing.Size(30, 22);
             this.refill3Pharm.TabIndex = 65;
-            this.refill3Pharm.TextChanged += new System.EventHandler(this.textBox18_TextChanged);
             // 
             // refill2Pharm
             // 
@@ -1392,7 +1362,6 @@
             this.refill2Pharm.ReadOnly = true;
             this.refill2Pharm.Size = new System.Drawing.Size(30, 22);
             this.refill2Pharm.TabIndex = 61;
-            this.refill2Pharm.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
             // 
             // refill1Pharm
             // 
@@ -1403,7 +1372,6 @@
             this.refill1Pharm.ReadOnly = true;
             this.refill1Pharm.Size = new System.Drawing.Size(30, 22);
             this.refill1Pharm.TabIndex = 57;
-            this.refill1Pharm.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             // 
             // label_prescriptionList
             // 
@@ -1416,7 +1384,6 @@
             this.label_prescriptionList.Size = new System.Drawing.Size(90, 15);
             this.label_prescriptionList.TabIndex = 58;
             this.label_prescriptionList.Text = "Prescription List";
-            this.label_prescriptionList.Click += new System.EventHandler(this.label9_Click_1);
             // 
             // prescript1Pharm
             // 
@@ -1427,7 +1394,6 @@
             this.prescript1Pharm.ReadOnly = true;
             this.prescript1Pharm.Size = new System.Drawing.Size(158, 22);
             this.prescript1Pharm.TabIndex = 56;
-            this.prescript1Pharm.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
             // prescript2Pharm
             // 
@@ -1438,7 +1404,6 @@
             this.prescript2Pharm.ReadOnly = true;
             this.prescript2Pharm.Size = new System.Drawing.Size(158, 22);
             this.prescript2Pharm.TabIndex = 60;
-            this.prescript2Pharm.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // prescript3Pharm
             // 
@@ -1449,7 +1414,6 @@
             this.prescript3Pharm.ReadOnly = true;
             this.prescript3Pharm.Size = new System.Drawing.Size(158, 22);
             this.prescript3Pharm.TabIndex = 64;
-            this.prescript3Pharm.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // prescript5Pharm
             // 
@@ -1460,7 +1424,6 @@
             this.prescript5Pharm.ReadOnly = true;
             this.prescript5Pharm.Size = new System.Drawing.Size(158, 22);
             this.prescript5Pharm.TabIndex = 72;
-            this.prescript5Pharm.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // prescript4Pharm
             // 
@@ -1471,7 +1434,6 @@
             this.prescript4Pharm.ReadOnly = true;
             this.prescript4Pharm.Size = new System.Drawing.Size(158, 22);
             this.prescript4Pharm.TabIndex = 68;
-            this.prescript4Pharm.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             // 
             // allergiesPharm
             // 
@@ -1540,7 +1502,6 @@
             this.dobPharm.ReadOnly = true;
             this.dobPharm.Size = new System.Drawing.Size(105, 22);
             this.dobPharm.TabIndex = 44;
-            this.dobPharm.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             this.dobPharm.Validating += new System.ComponentModel.CancelEventHandler(this.dobPharm_Validating);
             // 
             // lnamePharm
@@ -1563,7 +1524,6 @@
             this.fnamePharm.ReadOnly = true;
             this.fnamePharm.Size = new System.Drawing.Size(105, 22);
             this.fnamePharm.TabIndex = 42;
-            this.fnamePharm.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.fnamePharm.Validating += new System.ComponentModel.CancelEventHandler(this.fnamePharm_Validating);
             // 
             // label_search
@@ -1576,7 +1536,6 @@
             this.label_search.Size = new System.Drawing.Size(300, 15);
             this.label_search.TabIndex = 42;
             this.label_search.Text = "Search customer by first name, last name, or date of birth.";
-            this.label_search.Click += new System.EventHandler(this.label9_Click);
             // 
             // searchPharm
             // 
@@ -1727,7 +1686,6 @@
             this.refillPanel.Name = "refillPanel";
             this.refillPanel.Size = new System.Drawing.Size(286, 298);
             this.refillPanel.TabIndex = 5;
-            this.refillPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // pictureBox16
             // 
@@ -2004,7 +1962,7 @@
             this.adminPanel.Controls.Add(this.dailyFill_chkbox);
             this.adminPanel.Controls.Add(this.report_btn);
             this.adminPanel.Controls.Add(this.orderStatus_dropdown);
-            this.adminPanel.Controls.Add(this.comboBox1);
+            this.adminPanel.Controls.Add(this.orderStatus);
             this.adminPanel.Controls.Add(this.to_label);
             this.adminPanel.Controls.Add(this.dateRange_label);
             this.adminPanel.Controls.Add(this.dateRange2);
@@ -2066,7 +2024,6 @@
             this.adminPanel.Size = new System.Drawing.Size(424, 740);
             this.adminPanel.TabIndex = 6;
             this.adminPanel.Visible = false;
-            this.adminPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.adminPanel_Paint);
             // 
             // pictureBox15
             // 
@@ -2134,7 +2091,6 @@
             this.dailyFill_chkbox.TabIndex = 113;
             this.dailyFill_chkbox.Text = "Daily Fill Queue";
             this.dailyFill_chkbox.UseVisualStyleBackColor = true;
-            this.dailyFill_chkbox.CheckedChanged += new System.EventHandler(this.Adherence_CheckedChanged);
             // 
             // report_btn
             // 
@@ -2162,14 +2118,17 @@
             this.orderStatus_dropdown.TabIndex = 111;
             this.orderStatus_dropdown.Text = "Order Status";
             // 
-            // comboBox1
+            // orderStatus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(28, 697);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(92, 21);
-            this.comboBox1.TabIndex = 110;
+            this.orderStatus.FormattingEnabled = true;
+            this.orderStatus.Items.AddRange(new object[] {
+            "Shipped",
+            "Pending"});
+            this.orderStatus.Location = new System.Drawing.Point(28, 697);
+            this.orderStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.orderStatus.Name = "orderStatus";
+            this.orderStatus.Size = new System.Drawing.Size(92, 21);
+            this.orderStatus.TabIndex = 110;
             // 
             // to_label
             // 
@@ -2192,7 +2151,6 @@
             this.dateRange_label.Size = new System.Drawing.Size(64, 15);
             this.dateRange_label.TabIndex = 108;
             this.dateRange_label.Text = "Date Range";
-            this.dateRange_label.Click += new System.EventHandler(this.label22_Click_1);
             // 
             // dateRange2
             // 
@@ -2220,7 +2178,6 @@
             this.adminPanel_label.Size = new System.Drawing.Size(135, 21);
             this.adminPanel_label.TabIndex = 105;
             this.adminPanel_label.Text = "Report Generator";
-            this.adminPanel_label.Click += new System.EventHandler(this.label22_Click);
             // 
             // editAdmin
             // 
@@ -2364,7 +2321,6 @@
             this.ccAdmin.ReadOnly = true;
             this.ccAdmin.Size = new System.Drawing.Size(158, 20);
             this.ccAdmin.TabIndex = 52;
-            this.ccAdmin.TextChanged += new System.EventHandler(this.ccAdmin_TextChanged);
             this.ccAdmin.Validating += new System.ComponentModel.CancelEventHandler(this.ccAdmin_Validating);
             // 
             // label8
@@ -2813,7 +2769,6 @@
             this.drLname.Name = "drLname";
             this.drLname.Size = new System.Drawing.Size(100, 20);
             this.drLname.TabIndex = 126;
-            this.drLname.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // label25
             // 
@@ -2826,7 +2781,6 @@
             this.label25.Size = new System.Drawing.Size(35, 15);
             this.label25.TabIndex = 125;
             this.label25.Text = "Close";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // pictureBox18
             // 
@@ -2862,7 +2816,6 @@
             this.label24.Size = new System.Drawing.Size(68, 15);
             this.label24.TabIndex = 122;
             this.label24.Text = "Contact Info";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // drPhone
             // 
@@ -2873,7 +2826,6 @@
             this.drPhone.ReadOnly = true;
             this.drPhone.Size = new System.Drawing.Size(198, 20);
             this.drPhone.TabIndex = 121;
-            this.drPhone.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // drFname
             // 
@@ -2896,7 +2848,6 @@
             this.label9.Size = new System.Drawing.Size(92, 15);
             this.label9.TabIndex = 119;
             this.label9.Text = "Prescriber Name";
-            this.label9.Click += new System.EventHandler(this.label9_Click_2);
             // 
             // pictureBox17
             // 
@@ -3002,7 +2953,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -3220,7 +3170,7 @@
         private System.Windows.Forms.CheckBox dailyFill_chkbox;
         private System.Windows.Forms.Button report_btn;
         private System.Windows.Forms.Label orderStatus_dropdown;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox orderStatus;
         private System.Windows.Forms.Label to_label;
         private System.Windows.Forms.TextBox expUser;
         private System.Windows.Forms.Label expDate_label;

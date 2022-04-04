@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
@@ -24,9 +19,8 @@ namespace USPS
         static bool saveCheck = false;
         static string userPass;
         static string userID;
-        static string dbID;
         public bool refillCheck = false;
-        public static bool failed = false;
+        public static bool loginFailed = false;
 
         public Form1()
         {
@@ -81,20 +75,6 @@ namespace USPS
             string sysMess = systemMessage;
             MessageBox.Show(sysMess);
         }
-
-        private void user_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void passPic_Click(object sender, EventArgs e)
-        {
-
-        }
         private void newUser_CheckedChanged(object sender, EventArgs e)
         {
             if (newUser.Checked == true)
@@ -117,10 +97,11 @@ namespace USPS
             db = new DB();
             
             db.DBLogin(userPass, userID);
-
-            infoFill();
+            if (!loginFailed)
+            {
+                infoFill();
+            }
         }
-
         public void infoFill()
         {
             //populate user query data into dictionary, then use those keys to populate textboxes
@@ -187,9 +168,9 @@ namespace USPS
                 {
                     shippedPharm.Text = shippedAdmin.Text = recent;
                 }
-                dbID = info["ID"];
+
             }
-            if (!failed)
+            if (!loginFailed)
             {
                 if (userID == "IT488_Admin")
                 {
@@ -256,11 +237,8 @@ namespace USPS
                 {
                     shippedPharm.Text = shippedAdmin.Text = recent;
                 }
-
-                dbID = info["ID"];
             }
         }
-
         public void infoUpdate()
         {
             //update dictionary values with edited data from textboxes and send to db for updating database
@@ -286,7 +264,6 @@ namespace USPS
                 info.Add("docPhone", drPhone.Text);
                 info.Add("docEmail", drEmail.Text);
                 info.Add("insure", insuranceUser.Text);
-
 
                 db.infoUpdater(info);
             }
@@ -373,7 +350,6 @@ namespace USPS
                 }
             }
         }
-
         private void saveUser_Click(object sender, EventArgs e)
         {
             //user side save checks to verify intent to save and then disable textboxes again
@@ -406,7 +382,6 @@ namespace USPS
                 }
             }
         }
-
         //pharm side edits and saves
         private void editPharm_Click(object sender, EventArgs e)
         {
@@ -442,7 +417,6 @@ namespace USPS
                 }
             }
         }
-
         private void savePharm_Click(object sender, EventArgs e)
         {
             //pharm side save checks
@@ -493,7 +467,6 @@ namespace USPS
         {
             searchPharm.KeyUp += SearchKeyUp_Pharm;
         }
-
         //admin side edits and saves
         private void editAdmin_Click(object sender, EventArgs e)
         {
@@ -578,7 +551,45 @@ namespace USPS
         {
             searchAdmin.KeyUp += SearchKeyUp_Admin;
         }
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+            //open and close the dataGrid, send report query
+            if (dataGridView1.Visible == false)
+            {
+                report_btn.Text = "Close Report";
+                dataGridView1.Location = new System.Drawing.Point(450, 29);
+                
+                if (dailyFill_chkbox.Checked)
+                {
+                    dataGridView1.DataSource = db.dailyFillQuery();
+                    dataGridView1.Visible = true;
+                }
+                else
+                {
+                    if (orderStatus.Text == "Shipped")
+                    {
+                        dataGridView1.DataSource = db.orderStatusShippedQuery(dateRange1.Text, dateRange2.Text);
+                        dataGridView1.Visible = true;
 
+                    }
+                    else if (orderStatus.Text == "Pending")
+                    {
+                        dataGridView1.DataSource = db.orderStatusPendingQuery(dateRange1.Text, dateRange2.Text);
+                        dataGridView1.Visible = true;
+                    }
+                    else
+                    {
+                        mySystemMessage("Please select 'Shipped' or 'Pending' orders from the drop down.");
+                    }
+                }
+                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            else
+            {
+                dataGridView1.Visible = false;
+                report_btn.Text = "Request Report";
+            }
+        }
         //logout and return to sign in screen
         private void logOutButton_Click(object sender, EventArgs e)
         {
@@ -610,7 +621,6 @@ namespace USPS
         {
             prescriberPanel.Visible = false;
         }
-
         //refil panel stuff
         private void requestRefill_Click(object sender, EventArgs e)
         {
@@ -622,7 +632,6 @@ namespace USPS
         {
             refillPanel.Visible = false;
         }
-
         //refill checkbox area -- customer
         private void submitRefill_Click(object sender, EventArgs e)
         {
@@ -683,7 +692,6 @@ namespace USPS
                 submitRefill.Enabled = false;
             }
         }
-
         private void checkBox2Refill_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2Refill.Checked == true)
@@ -708,7 +716,6 @@ namespace USPS
                 submitRefill.Enabled = false;
             }
         }
-
         private void checkBox3Refill_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3Refill.Checked == true)
@@ -733,7 +740,6 @@ namespace USPS
                 submitRefill.Enabled = false;
             }
         }
-
         private void checkBox4Refill_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox4Refill.Checked == true)
@@ -758,7 +764,6 @@ namespace USPS
                 submitRefill.Enabled = false;
             }
         }
-
         private void checkBox5Refill_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox5Refill.Checked == true)
@@ -783,7 +788,6 @@ namespace USPS
                 submitRefill.Enabled = false;
             }
         }
-
         //refil checkbox area -- pharm
         private void submitPharm_Click(object sender, EventArgs e)
         {
@@ -820,7 +824,6 @@ namespace USPS
                 mySystemMessage("Your order has been placed!");
             }
         }
-
         private void checkBox1Pharm_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1Pharm.Checked == true)
@@ -941,7 +944,6 @@ namespace USPS
                 SubmitOrderPharm.Enabled = false;
             }
         }
-
         // ---- textbox validation section -----
 
         // Login page validation
@@ -972,7 +974,6 @@ namespace USPS
                 mySystemMessage("Fields cannot be left blank.");
             }
         }
-
         // panel 1 Customer validation
         private void fnameUser_Validating(object sender, CancelEventArgs e)
         {
@@ -1256,7 +1257,6 @@ namespace USPS
                 }
             }
         }
-
         private void ccUser_Validating(object sender, CancelEventArgs e)
         {
             //We can include regex to verify that input is a valid cc number, but for
@@ -1302,7 +1302,6 @@ namespace USPS
                 }
             }
         }
-
         //panel 2 Pharm validation
 
         private void fnamePharm_Validating(object sender, CancelEventArgs e)
@@ -1632,7 +1631,6 @@ namespace USPS
                 }
             }
         }
-
         //admin panel validating
 
         private void fnameAdmin_Validating(object sender, CancelEventArgs e)
@@ -1882,7 +1880,6 @@ namespace USPS
                 }
             }
         }
-
         private void telephoneAdmin_TextChanged(object sender, EventArgs e)
         {
             if (telephoneAdmin.Text.Length > 2)
@@ -1902,7 +1899,6 @@ namespace USPS
                 }
             }
         }
-
         private void telephoneAdmin_KeyDown(object sender, KeyEventArgs e)
         {
             if (telephoneAdmin.Text.Length > 2)
@@ -1917,7 +1913,6 @@ namespace USPS
                 }
             }
         }
-
         private void ccAdmin_Validating(object sender, CancelEventArgs e)
         {
             //We can include regex to verify that input is a valid cc number, but for
@@ -1962,289 +1957,6 @@ namespace USPS
                     mySystemMessage("Only letters and numbers allowed in Drug Allergies field.");
                 }
             }
-        }
-
-        // unused stuff. Will delete if all remains unused.
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_4(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_5(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lastNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void password_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'iT488_USPSDataSet.Purchase_Orders' table. You can move, or remove it, as needed.
-            //this.purchase_OrdersTableAdapter.Fill(this.iT488_USPSDataSet.Purchase_Orders);
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cityTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox21_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox22_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox23_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox25_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox24_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox30_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox19_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox18_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox20_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox17_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label22_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Adherence_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void report_btn_Click(object sender, EventArgs e)
-        {
-            //open and close the dataGrid, send report query
-            if (dataGridView1.Visible == false)
-            {
-                report_btn.Text = "Close Report";
-                dataGridView1.Location = new System.Drawing.Point(450, 29);
-                dataGridView1.Visible = true;
-
-                dataGridView1.DataSource = db.reportQuery(dateRange1.Text, dateRange2.Text);
-                dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            }
-            else
-            {
-                dataGridView1.Visible = false;
-                report_btn.Text = "Request Report";
-            }
-        }
-
-        private void ccAdmin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adminPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pharmPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label_paymentMethod_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
-        {
-
         }
     }
     public static partial class ValidationFunctions

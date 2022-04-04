@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
-using System.Text.RegularExpressions;
-using System.Globalization;
 using System.Data;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace USPS
@@ -14,7 +12,6 @@ namespace USPS
     public class DB
     {
         string connectionstring;
-        static string userPass;
         static string userID;
         static string dbID;
         public DB()
@@ -24,8 +21,6 @@ namespace USPS
         public void DBLogin(string pass, string user)
         {
             var conn = new SqlConnection();
-
-            userPass = pass; // these take input from relevant fields
             userID = user;
 
             //builder class allows to use variables for user and password fields (get user input)
@@ -42,25 +37,23 @@ namespace USPS
             {
                 //open session
                 conn.Open();
-                Form1.failed = false;
+                Form1.loginFailed = false;
                 Form1.mySystemMessage("Successfully connected!");
 
             }
             catch (Exception ex)
             {
-                Form1.failed = true;
+                Form1.loginFailed = true;
                 Form1.mySystemMessage("Login failed.");
                 Console.WriteLine(ex.Message);
             }
 
         }
-
         public void logOut()
         {
             Form1.mySystemMessage("Successfully logged out.");
             Form1.customerPanelSwitch = Form1.adminPanelSwitch = Form1.pharmPanelSwitch = false;
         }
-
         public void infoUpdater(Dictionary<string, string> info)
         {
             //Check if new user
@@ -144,10 +137,9 @@ namespace USPS
                         Form1.mySystemMessage(ex.Message);
                     }
                 }
-                
+
             }
         }
-        
         public Dictionary<string, string> infoUpdateQuery()
         {
             Dictionary<string, string> info = new Dictionary<string, string>();
@@ -173,7 +165,6 @@ namespace USPS
             info.Add("insure", "");
 
             SqlDataReader dataReader;
-
             SqlConnection cnn = new SqlConnection(connectionstring);
             try
             {
@@ -187,7 +178,7 @@ namespace USPS
                     "Prescription_Quantity, Prescription_Refill, PI.Prescription_Price, PO_ID, PO_Date, " +
                     "PO_Total, PO_ShipDate FROM Customers_List AS CL " +
                     "INNER JOIN Customers_Payment_Info AS CPI ON CL.Customer_ID = CPI.Customer_ID " +
-                    "INNER JOIN Doctor_List AS DL ON CPI.Customer_ID = DL.Customer_ID " + 
+                    "INNER JOIN Doctor_List AS DL ON CPI.Customer_ID = DL.Customer_ID " +
                     "INNER JOIN Prescription_Item AS PI ON DL.Customer_ID = PI.Customer_ID " +
                     "INNER JOIN Purchase_Orders AS PO ON PI.Customer_ID = PO.Customer_ID " +
                     "WHERE Customer_UserName = @un", cnn);
@@ -324,7 +315,6 @@ namespace USPS
             }
             return null;
         }
-
         public Dictionary<string, string> searchCustomers(string searchString)
         {
             //temp string to store and convert date if present
@@ -363,7 +353,6 @@ namespace USPS
             info.Add("insure", "");
 
             SqlDataReader dataReader;
-
             //if dt is not empty, search by date, otherwise search by name
             SqlConnection cnn = new SqlConnection(connectionstring);
             SqlCommand cmd = new SqlCommand();
@@ -398,7 +387,7 @@ namespace USPS
                     "INNER JOIN Prescription_Item AS PI ON DL.Customer_ID = PI.Customer_ID " +
                     "INNER JOIN Purchase_Orders AS PO ON PI.Customer_ID = PO.Customer_ID " +
                     "WHERE Customer_FirstName = @ss OR Customer_LastName = @ss", cnn);
-                cmd.Parameters.AddWithValue("@ss", searchString);            
+                cmd.Parameters.AddWithValue("@ss", searchString);
             }
             try
             {
@@ -468,7 +457,7 @@ namespace USPS
                             "WHERE Customer_FirstName = @ss OR Customer_LastName = @ss", cnn);
                         cmd.Parameters.AddWithValue("@ss", searchString);
                     }
-                    
+
                     dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
                     {
@@ -541,14 +530,14 @@ namespace USPS
                     {
                         scriptsInfo.Add(dataReader[0].ToString());
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Form1.mySystemMessage("Error with query.");
                         Console.WriteLine(ex.Message);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Form1.mySystemMessage(ex.Message);
             }
@@ -672,112 +661,94 @@ namespace USPS
         {
             //convert first date to digits
             date1 = date1.Substring(date1.IndexOf(',') + 2);
-            if (date1.Contains("January"))
+            switch (date1)
             {
-                date1 = date1.Replace("January", "1");
+                case String a when a.Contains("January"):
+                    date1 = date1.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date1 = date1.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date1 = date1.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date1 = date1.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date1 = date1.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date1 = date1.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date1 = date1.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date1 = date1.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date1 = date1.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date1 = date1.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date1 = date1.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date1 = date1.Replace("December", "12");
+                    break;
             }
-            if (date1.Contains("February"))
-            {
-                date1 = date1.Replace("February", "2");
-            }
-            if (date1.Contains("March"))
-            {
-                date1 = date1.Replace("March", "3");
-            }
-            if (date1.Contains("April"))
-            {
-                date1 = date1.Replace("April", "4");
-            }
-            if (date1.Contains("Mary"))
-            {
-                date1 = date1.Replace("May", "5");
-            }
-            if (date1.Contains("June"))
-            {
-                date1 = date1.Replace("June", "6");
-            }
-            if (date1.Contains("July"))
-            {
-                date1 = date1.Replace("July", "7");
-            }
-            if (date1.Contains("August"))
-            {
-                date1 = date1.Replace("August", "8");
-            }
-            if (date1.Contains("September"))
-            {
-                date1 = date1.Replace("September", "9");
-            }
-            if (date1.Contains("October"))
-            {
-                date1 = date1.Replace("October", "10");
-            }
-            if (date1.Contains("November"))
-            {
-                date1 = date1.Replace("November", "11");
-            }
-            if (date1.Contains("December"))
-            {
-                date1 = date1.Replace("December", "12");
-            }
+
             date1 = date1.Replace(" ", "/");
             date1 = date1.Replace(",", string.Empty);
 
             //convert second date to digits
             date2 = date2.Substring(date2.IndexOf(',') + 2);
-            if (date2.Contains("January"))
+            switch (date2)
             {
-                date2 = date2.Replace("January", "1");
-            }
-            if (date2.Contains("February"))
-            {
-                date2 = date2.Replace("February", "2");
-            }
-            if (date2.Contains("March"))
-            {
-                date2 = date2.Replace("March", "3");
-            }
-            if (date2.Contains("April"))
-            {
-                date2 = date2.Replace("April", "4");
-            }
-            if (date2.Contains("May"))
-            {
-                date2 = date2.Replace("May", "5");
-            }
-            if (date2.Contains("June"))
-            {
-                date2 = date2.Replace("June", "6");
-            }
-            if (date2.Contains("July"))
-            {
-                date2 = date2.Replace("July", "7");
-            }
-            if (date2.Contains("August"))
-            {
-                date2 = date2.Replace("August", "8");
-            }
-            if (date2.Contains("September"))
-            {
-                date2 = date2.Replace("September", "9");
-            }
-            if (date2.Contains("October"))
-            {
-                date2 = date2.Replace("October", "10");
-            }
-            if (date2.Contains("November"))
-            {
-                date2 = date2.Replace("November", "11");
-            }
-            if (date2.Contains("December"))
-            {
-                date2 = date2.Replace("December", "12");
+                case String a when a.Contains("January"):
+                    date2 = date2.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date2 = date2.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date2 = date2.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date2 = date2.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date2 = date2.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date2 = date2.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date2 = date2.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date2 = date2.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date2 = date2.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date2 = date2.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date2 = date2.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date2 = date2.Replace("December", "12");
+                    break;
             }
             date2 = date2.Replace(" ", "/");
             date2 = date2.Replace(",", String.Empty);
 
             BindingSource bindingSource1 = new BindingSource();
-
             SqlConnection cnn = new SqlConnection(connectionstring);
             cnn.Open();
 
@@ -785,6 +756,244 @@ namespace USPS
                 "WHERE PO_Date BETWEEN @d1 AND @d2 ORDER BY PO_Date DESC", cnn);
             cmd.Parameters.AddWithValue("@d1", date1);
             cmd.Parameters.AddWithValue("@d2", date2);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable
+            {
+                Locale = CultureInfo.InvariantCulture
+            };
+            adapter.Fill(table);
+            bindingSource1.DataSource = table;
+
+            return bindingSource1;
+        }
+        public BindingSource orderStatusShippedQuery(string date1, string date2)
+        {
+            date1 = date1.Substring(date1.IndexOf(',') + 2);
+            switch (date1)
+            {
+                case String a when a.Contains("January"):
+                    date1 = date1.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date1 = date1.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date1 = date1.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date1 = date1.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date1 = date1.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date1 = date1.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date1 = date1.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date1 = date1.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date1 = date1.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date1 = date1.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date1 = date1.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date1 = date1.Replace("December", "12");
+                    break;
+            }
+
+            date1 = date1.Replace(" ", "/");
+            date1 = date1.Replace(",", string.Empty);
+
+            //convert second date to digits
+            date2 = date2.Substring(date2.IndexOf(',') + 2);
+            switch (date2)
+            {
+                case String a when a.Contains("January"):
+                    date2 = date2.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date2 = date2.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date2 = date2.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date2 = date2.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date2 = date2.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date2 = date2.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date2 = date2.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date2 = date2.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date2 = date2.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date2 = date2.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date2 = date2.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date2 = date2.Replace("December", "12");
+                    break;
+            }
+            date2 = date2.Replace(" ", "/");
+            date2 = date2.Replace(",", String.Empty);
+
+            BindingSource bindingSource1 = new BindingSource();
+            SqlConnection cnn = new SqlConnection(connectionstring);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Purchase_Orders WHERE PO_Date BETWEEN @d1 " +
+                "AND @d2 AND PO_ShipDate <= CURRENT_TIMESTAMP ORDER BY PO_Date DESC", cnn);
+            cmd.Parameters.AddWithValue("@d1", date1);
+            cmd.Parameters.AddWithValue("@d2", date2);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable
+            {
+                Locale = CultureInfo.InvariantCulture
+            };
+            adapter.Fill(table);
+            bindingSource1.DataSource = table;
+
+            return bindingSource1;
+        }
+        public BindingSource orderStatusPendingQuery(string date1, string date2)
+        {
+            date1 = date1.Substring(date1.IndexOf(',') + 2);
+            switch (date1)
+            {
+                case String a when a.Contains("January"):
+                    date1 = date1.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date1 = date1.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date1 = date1.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date1 = date1.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date1 = date1.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date1 = date1.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date1 = date1.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date1 = date1.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date1 = date1.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date1 = date1.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date1 = date1.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date1 = date1.Replace("December", "12");
+                    break;
+            }
+
+            date1 = date1.Replace(" ", "/");
+            date1 = date1.Replace(",", string.Empty);
+
+            //convert second date to digits
+            date2 = date2.Substring(date2.IndexOf(',') + 2);
+            switch (date2)
+            {
+                case String a when a.Contains("January"):
+                    date2 = date2.Replace("January", "1");
+                    break;
+                case String b when b.Contains("February"):
+                    date2 = date2.Replace("February", "2");
+                    break;
+                case String c when c.Contains("March"):
+                    date2 = date2.Replace("March", "3");
+                    break;
+                case String d when d.Contains("April"):
+                    date2 = date2.Replace("April", "4");
+                    break;
+                case String e when e.Contains("May"):
+                    date2 = date2.Replace("May", "5");
+                    break;
+                case String f when f.Contains("June"):
+                    date2 = date2.Replace("June", "6");
+                    break;
+                case String g when g.Contains("July"):
+                    date2 = date2.Replace("July", "7");
+                    break;
+                case String h when h.Contains("August"):
+                    date2 = date2.Replace("August", "8");
+                    break;
+                case String i when i.Contains("September"):
+                    date2 = date2.Replace("September", "9");
+                    break;
+                case String j when j.Contains("October"):
+                    date2 = date2.Replace("October", "10");
+                    break;
+                case String k when k.Contains("November"):
+                    date2 = date2.Replace("November", "11");
+                    break;
+                case String l when l.Contains("December"):
+                    date2 = date2.Replace("December", "12");
+                    break;
+            }
+            date2 = date2.Replace(" ", "/");
+            date2 = date2.Replace(",", String.Empty);
+            BindingSource bindingSource1 = new BindingSource();
+
+            SqlConnection cnn = new SqlConnection(connectionstring);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Purchase_Orders WHERE PO_Date BETWEEN @d1 " +
+                "AND @d2 AND PO_ShipDate > CURRENT_TIMESTAMP ORDER BY PO_Date DESC", cnn);
+            cmd.Parameters.AddWithValue("@d1", date1);
+            cmd.Parameters.AddWithValue("@d2", date2);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable
+            {
+                Locale = CultureInfo.InvariantCulture
+            };
+            adapter.Fill(table);
+            bindingSource1.DataSource = table;
+
+            return bindingSource1;
+        }
+        public BindingSource dailyFillQuery()
+        {
+            BindingSource bindingSource1 = new BindingSource();
+            SqlConnection cnn = new SqlConnection(connectionstring);
+            cnn.Open();
+
+            //need to add 'AND PO_ShipDate > CURRENT_TIMESTAMP', but there is currently no data to show if left in,
+            //as we have no data in the database with a ship date higher than now.
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Purchase_Orders WHERE DATEDIFF(dd, PO_Date, GETDATE()) <= 70", cnn);
+
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable
             {

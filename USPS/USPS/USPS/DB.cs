@@ -25,7 +25,7 @@ namespace USPS
 
             //builder class allows to use variables for user and password fields (get user input)
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "it488.database.windows.net";
+            builder.DataSource = "localhost\\SQLExpress";
             builder.InitialCatalog = "IT488_USPS";
             builder.TrustServerCertificate = true;
             builder.Password = pass;

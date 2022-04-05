@@ -88,7 +88,7 @@ namespace USPS
             userPass = pass.Text;
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "localhost\\SQLExpress";
+            builder.DataSource = "tcp:it488.database.windows.net,1433";
             builder.InitialCatalog = "IT488_USPS";
             builder.TrustServerCertificate = true;
             builder.Password = userPass;
